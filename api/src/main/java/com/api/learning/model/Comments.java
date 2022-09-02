@@ -1,4 +1,4 @@
-package com.api.learning;
+package com.api.learning.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
