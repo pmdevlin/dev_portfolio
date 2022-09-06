@@ -4,20 +4,20 @@
 
 ##### CheckList
 
-- [ ] research spring boot
+- [x] research spring boot
 - [ ] understand the Java code that goes into the project
-- [ ] research possible design ideas
-- [ ] create rough draft designs (Figma)
-- [ ] create final design (basic outline)
+- [x] research possible design ideas
+- [x] create rough draft designs (Figma)
+- [x] create final design (basic outline)
 - [ ] refine final design
-- [ ] create ERD (database)
-- [ ] create database
-- [ ] start spring boot project
-- [ ] connect spring boot to the database
-- [ ] set up spring boot crud routes
+- [x] create ERD (database)
+- [x] create database
+- [x] start spring boot project
+- [x] connect spring boot to the database
+- [x] set up spring boot crud routes
 - [ ] get a good test in postman
-- [ ] initialize react app
-- [ ] create basic homepage
+- [x] initialize react app
+- [x] create basic homepage
 - [ ] connect routes to display data from database through server
 - [ ] start building following the design as close as possible
 
@@ -40,6 +40,6 @@
 
 - [ ] continue to improve design
 - [ ] kiss (keep is simple stupid)
-- [ ] generate a prototype
-- [ ] keep colors basic
-- [ ] leave out special effects
+- [x] generate a prototype
+- [x] keep colors basic
+- [x] leave out special effects
