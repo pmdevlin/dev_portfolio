@@ -1,5 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Inter:wght@400;600;700&family=K2D:wght@300&display=swap");
 .container {
   background-color: #333333;
   height: 100vh;
   width: 100vw;
+}
+
+.introTitle {
+  position: absolute;
+  width: 8.5rem;
+  height: 2.25rem;
+  left: 15rem;
+  top: 10.125rem;
+
+  font-family: "Inconsolata", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 36px;
+  color: #ffffff;
+}
+.intro {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 31.25rem;
+  height: 44.813rem;
+  left: 15rem;
+  top: 12.25rem;
+
+  background: #333333;
+  border: 2px solid #1fe857;
+}
+
+.skillsTitle {
+  position: absolute;
+  width: 19rem;
+  height: 4.5rem;
+  left: 60rem;
+  top: 34.15rem;
+
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 36px;
+
+  color: #ffffff;
+}
+
+.skills {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 41rem;
+  height: 20.563rem;
+  left: 60rem;
+  top: 36.5rem;
+
+  background: #333333;
+  border: 2px solid #1fe857;
 }
