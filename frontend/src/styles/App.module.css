@@ -2,3 +2,12 @@
   padding: 0;
   margin: 0;
 }
+
+:root {
+  --navbar-background: #ffffff;
+  --main-black: #333333;
+  --dark-black: #000000;
+  --neon-green: #1fe857;
+  --dark-gray: #555555;
+  --light-grey: #bbbbbb;
+}
