@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from "./Navbar.module.css";
 import links from "../utils/links";
 import NavLogo from "../images/NavbarLogo.svg";
@@ -7,11 +8,14 @@ import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
 const Navbar = () => {
   const link = links.map((item, key) => {
     return (
-      <li key={key} className={style.linkLi}>
-        {item}
-      </li>
+      <Link to={item.path}>
+        <li className={style.linkLi} key={key}>
+          {item.name}
+        </li>
+      </Link>
     );
   });
+
   return (
     <div className={style.container}>
       <div className={style.mediaContainer}>

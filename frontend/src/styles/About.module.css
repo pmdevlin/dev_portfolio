@@ -2,74 +2,73 @@
 .container {
   background-color: #333333;
   height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
 }
 
-.L {
+.main {
+  margin-top: 4rem;
+  display: flex;
+}
+.L,
+.R {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: #1fe857;
-  height: 100%;
+  height: 75vh;
   width: 50%;
 }
 
 .introTitle {
-  /* position: absolute; */
   width: 8.5rem;
   height: 2.25rem;
-
-  /* left: 15rem;
-  top: 10.125rem; */
-
   font-family: "Inconsolata", monospace;
   font-style: normal;
   font-weight: 400;
   font-size: 34px;
   line-height: 36px;
   color: #ffffff;
+  align-self: flex-start;
+  margin-left: 14.2rem;
+  margin-top: 4rem;
 }
 .intro {
-  /* box-sizing: border-box;
-
-  position: absolute;
-   left: 15rem;
-  top: 12.25rem; */
   width: 31.25rem;
   height: 44.813rem;
-
   background: #333333;
   border: 2px solid #1fe857;
 }
 
-.skillsTitle {
-  position: absolute;
-  width: 19rem;
-  height: 4.5rem;
-  left: 60rem;
-  top: 34.15rem;
+.image {
+  border: 2px solid green;
+  border-radius: 50%;
+  height: 400px;
+  width: 400px;
+  margin-bottom: 0.5rem;
+}
+.profilePic {
+  border-radius: 50%;
+  height: 400px;
+  width: 400px;
+  margin-bottom: 3rem;
+}
 
-  font-family: "Inconsolata";
+.skillsTitle {
+  width: 19rem;
+  align-self: flex-start;
+  font-family: "Inconsolata", monospace;
   font-style: normal;
   font-weight: 400;
   font-size: 34px;
   line-height: 36px;
-
   color: #ffffff;
+  margin-left: 9.2rem;
 }
 
 .skills {
-  box-sizing: border-box;
-
-  position: absolute;
   width: 41rem;
   height: 20.563rem;
-  left: 60rem;
-  top: 36.5rem;
-
   background: #333333;
   border: 2px solid #1fe857;
+  margin-top: 0;
 }

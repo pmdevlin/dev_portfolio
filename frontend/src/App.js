@@ -5,12 +5,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Comments from "./pages/Comments";
 import style from "./styles/App.module.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  route,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
