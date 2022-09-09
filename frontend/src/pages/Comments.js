@@ -1,11 +1,15 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import CommentBox from "../components/CommentBox";
+import style from "../styles/Comments.module.css";
 
 const Comments = () => {
   return (
-    <div>
+    <div className={style.container}>
       <Navbar />
-      Comments Page
+      <div className={style.main}>
+        <CommentBox />
+      </div>
     </div>
   );
 };

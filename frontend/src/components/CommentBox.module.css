@@ -1,0 +1,17 @@
+.container {
+  border: 1px solid red;
+  width: 674px;
+  height: 352px;
+  margin-top: 2rem;
+}
+
+.main {
+  border: 1px solid green;
+  height: 18rem;
+  margin: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
