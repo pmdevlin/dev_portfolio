@@ -1,12 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Inter:wght@400;600;700&family=K2D:wght@300&display=swap");
+
 .container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 674px;
   height: 352px;
   margin-top: 2rem;
+  background-color: var(--dark-gray);
+  box-shadow: 3px 3px 2px var(--neon-green);
 }
 
 .main {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   height: 18rem;
   margin: 2rem;
 }
@@ -14,4 +18,38 @@
 .form {
   display: flex;
   flex-direction: column;
+}
+
+.nameBox,
+.topicBox,
+.bodyBox {
+  border-radius: 9px;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.nameBox,
+.topicBox {
+  height: 1.5rem;
+}
+.bodyBox {
+  height: 7.5rem;
+  display: flex;
+  overflow-wrap: break-word;
+}
+.button {
+  width: 6rem;
+  height: 1.5rem;
+  align-self: center;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px var(--neon-green);
+}
+.title {
+  color: var(--neon-green);
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.1052px;
+  line-height: 14px;
 }
