@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
+import Display from "../components/Display";
 import style from "../styles/Comments.module.css";
 
 const Comments = () => {
@@ -9,6 +10,7 @@ const Comments = () => {
       <Navbar />
       <div className={style.main}>
         <CommentBox />
+        <Display />
       </div>
     </div>
   );
