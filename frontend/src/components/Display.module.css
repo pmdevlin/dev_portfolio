@@ -1,0 +1,37 @@
+.container {
+  height: 10rem;
+  width: 50rem;
+  background-color: var(--comment-grey);
+  margin: 2rem;
+  border-radius: 10px;
+}
+
+.nameContainer,
+.topicContainer {
+  display: flex;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.paragraphContainer {
+  margin: 1rem;
+}
+
+.input {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23.2207px;
+  line-height: 24px;
+}
+
+.name,
+.topic {
+  color: #6e6e6e;
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23.2207px;
+  line-height: 24px;
+  margin-right: 1rem;
+}
