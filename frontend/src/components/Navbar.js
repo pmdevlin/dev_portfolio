@@ -8,10 +8,8 @@ import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
 const Navbar = () => {
   const link = links.map((item, key) => {
     return (
-      <Link to={item.path}>
-        <li className={style.linkLi} key={key}>
-          {item.name}
-        </li>
+      <Link to={item.path} key={key}>
+        <li className={style.linkLi}>{item.name}</li>
       </Link>
     );
   });

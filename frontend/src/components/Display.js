@@ -1,7 +1,8 @@
 import React from "react";
 import style from "./Display.module.css";
 
-const Display = () => {
+const Display = (props) => {
+  console.log(props);
   return (
     <div className={style.container}>
       <div className={style.nameContainer}>

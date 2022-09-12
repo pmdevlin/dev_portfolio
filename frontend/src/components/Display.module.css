@@ -18,6 +18,7 @@
 }
 
 .input {
+  color: var(--dark-black);
   font-family: "Inconsolata";
   font-style: normal;
   font-weight: 400;

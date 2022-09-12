@@ -55,3 +55,12 @@
   font-size: 13.1052px;
   line-height: 14px;
 }
+
+.input {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23.2207px;
+  line-height: 24px;
+  color: var();
+}
