@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "./Navbar.module.css";
+import style from "../componentStyles/Navbar.module.css";
 import links from "../utils/links";
 import NavLogo from "../images/NavbarLogo.svg";
 import { FaLinkedin, FaGithubSquare } from "react-icons/fa";

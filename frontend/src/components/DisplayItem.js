@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./DisplayItem.module.css";
+import style from "../componentStyles/DisplayItem.module.css";
 
 const DisplayItem = (props) => {
   console.log(props);

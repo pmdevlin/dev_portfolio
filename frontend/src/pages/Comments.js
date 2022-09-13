@@ -41,7 +41,11 @@ const Comments = () => {
           </button>
         </div>
         <div className={style.commentContainer}>
-          {show ? <MainDisplay comment={comment} /> : <p>view Comments here</p>}
+          {show ? (
+            <MainDisplay comment={comment} />
+          ) : (
+            <p className={style.instructions}>To See all comments press View</p>
+          )}
         </div>
       </div>
     </div>

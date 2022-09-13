@@ -13,7 +13,6 @@
 .buttonContainer {
   display: flex;
   margin: 0;
-  border: 1px solid red;
 }
 
 .button {
@@ -24,4 +23,18 @@
 
   border-radius: 10px;
   box-shadow: 4px 4px 4px var(--neon-green);
+}
+
+.commentContainer {
+  overflow-y: auto;
+  height: 20rem;
+}
+
+.instructions {
+  color: var(--neon-green);
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.1052px;
+  line-height: 14px;
 }
