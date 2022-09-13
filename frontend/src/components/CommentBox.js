@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./CommentBox.module.css";
 
 const CommentBox = () => {
-  const [comment, setComment] = useState();
-
   return (
     <div className={style.container}>
       <div className={style.main}>
