@@ -18,6 +18,6 @@
   width: 10rem;
   height: 3rem;
   background: #d9d9d9;
-  box-shadow: 4px 4px 4px #1fe857;
+  filter: drop-shadow(0px 4px 4px var(--dark-black));
   border-radius: 10px;
 }

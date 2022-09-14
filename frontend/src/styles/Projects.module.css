@@ -3,9 +3,19 @@
   background-color: var(--main-black);
 }
 .main {
-  height: 85vh;
-  margin-top: 1rem;
+  border: 1px solid orange;
+}
+.infoContainer {
+  border: 1px solid red;
+  margin-top: 4rem;
   display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+}
+.display {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 }
