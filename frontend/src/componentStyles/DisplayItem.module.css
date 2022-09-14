@@ -6,7 +6,7 @@
   border-radius: 10px;
 }
 
-.nameContainer,
+.nameAndButton,
 .topicContainer {
   display: flex;
   margin-top: 0.5rem;
@@ -15,6 +15,10 @@
 }
 .paragraphContainer {
   margin: 1rem;
+}
+.nameAndButton {
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .input {
@@ -35,4 +39,12 @@
   font-size: 23.2207px;
   line-height: 24px;
   margin-right: 1rem;
+}
+
+.nameContainer {
+  display: flex;
+}
+
+.close {
+  margin-left: 1rem;
 }
