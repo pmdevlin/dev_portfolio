@@ -1,0 +1,11 @@
+.container {
+  height: 10rem;
+  width: 850px;
+  background-color: var(--light-grey);
+}
+
+.titleBox {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}

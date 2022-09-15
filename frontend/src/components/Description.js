@@ -1,7 +1,22 @@
 import React from "react";
+import style from "../componentStyles/Description.module.css";
+import { FaWindowClose } from "react-icons/fa";
 
-const Description = () => {
-  return <div> this is the description area</div>;
+const Description = (props) => {
+  console.log(props);
+
+  const descriptionClose = () => {
+    props.setVisible(false);
+  };
+
+  return (
+    <div className={style.container}>
+      <div className={style.titleBox}>
+        <h2>{props.projectObj.name}</h2>
+        <FaWindowClose onClick={descriptionClose} />
+      </div>
+    </div>
+  );
 };
 
 export default Description;
