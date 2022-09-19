@@ -15,6 +15,7 @@ const Description = (props) => {
         <h2>{props.projectObj.name}</h2>
         <FaWindowClose onClick={descriptionClose} />
       </div>
+      <p className={style.info}>{props.projectObj.info}</p>
     </div>
   );
 };
