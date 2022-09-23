@@ -5,7 +5,7 @@ import { CommentContext } from "../pages/Comments";
 
 const MainDisplay = () => {
   const commentContext = useContext(CommentContext);
-  console.log(commentContext);
+  console.log(commentContext.commentState);
   // const view = props.comment
   //   .slice(0)
   //   .reverse()

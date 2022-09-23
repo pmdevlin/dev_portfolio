@@ -4,7 +4,7 @@ import CommentBox from "../components/CommentBox";
 import axios from "axios";
 import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
-import { FaGit } from "react-icons/fa";
+//import { FaGit } from "react-icons/fa";
 
 export const CommentContext = React.createContext();
 
