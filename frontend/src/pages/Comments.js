@@ -20,6 +20,7 @@ const ACTIONS = {
   ERROR: "error_handler",
   COMMENTS: "access_comments",
   HIDE: "hide_comments",
+  DELETE: "delete_comment",
 };
 const reducer = (state, action) => {
   switch (action.type) {
