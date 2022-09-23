@@ -13,6 +13,7 @@ const initialState = {
   show: false,
   error: "",
   comments: {},
+  id: "",
 };
 const ACTIONS = {
   GET: "fetch_comments",
@@ -70,6 +71,11 @@ const Comments = () => {
   };
   const handleHide = () => {
     dispatch({ type: ACTIONS.HIDE });
+  };
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:8080/comments/${id}`)
+      .then((data) => console.log(`delete success for comment id: ${id}`));
   };
 
   return (
