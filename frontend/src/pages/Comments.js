@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
 import axios from "axios";
-//import MainDisplay from "../components/MainDisplay";
+import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
 import { FaGit } from "react-icons/fa";
 
@@ -97,6 +97,7 @@ const Comments = () => {
             </button>
           </div>
           <div className={style.commentContainer}>
+            <MainDisplay />
             {/* {state.show ? (
               <MainDisplay />
             ) : (
