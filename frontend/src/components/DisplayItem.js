@@ -3,6 +3,8 @@ import style from "../componentStyles/DisplayItem.module.css";
 import { FaEdit, FaWindowClose } from "react-icons/fa";
 
 const DisplayItem = (props) => {
+  const commentContext = useContext(CommentContext);
+
   const { id, name, topic, body } = props.item;
   const handleClose = () => {
     fetch(`http://localhost:8080/comments/${id}`, {
