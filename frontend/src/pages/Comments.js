@@ -1,8 +1,10 @@
 import React, { useEffect, useReducer } from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
+import axios from "axios";
 //import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
+import { FaGit } from "react-icons/fa";
 
 export const CommentContext = React.createContext();
 
@@ -53,7 +55,8 @@ const Comments = () => {
   // const [show, setShow] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8080/comments")
+    axios
+      .get("http://localhost:8080/comments")
       .then((response) => {
         dispatch({ type: ACTIONS.GET, payload: response.data });
       })
@@ -81,7 +84,7 @@ const Comments = () => {
           <div className={style.buttonContainer}>
             <button
               className={style.button}
-              onClick={() => console.log(state.commentState)}
+              onClick={() => console.log(state)}
               type="button"
             >
               View
