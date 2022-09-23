@@ -109,7 +109,6 @@ const Comments = () => {
             </button>
           </div>
           <div className={style.commentContainer}>
-            <MainDisplay />
             {/* {state.show ? (
               <MainDisplay />
             ) : (
