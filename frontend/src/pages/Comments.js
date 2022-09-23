@@ -72,11 +72,11 @@ const Comments = () => {
   const handleHide = () => {
     dispatch({ type: ACTIONS.HIDE });
   };
-  const handleDelete = () => {
-    axios
-      .delete(`http://localhost:8080/comments/${id}`)
-      .then((data) => console.log(`delete success for comment id: ${id}`));
-  };
+  // const handleDelete = () => {
+  //   axios
+  //     .delete(`http://localhost:8080/comments/${id}`)
+  //     .then((data) => console.log(`delete success for comment id: ${id}`));
+  // };
 
   return (
     <CommentContext.Provider
