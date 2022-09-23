@@ -10,7 +10,7 @@ const MainDisplay = () => {
     .slice(0)
     .reverse()
     .map((item) => {
-      return <DisplayItem key={item.id} />;
+      return <DisplayItem item={item} key={item.id} />;
     });
 
   return <div className={style.comment}>{view}</div>;

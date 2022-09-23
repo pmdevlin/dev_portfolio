@@ -5,7 +5,7 @@ import { CommentContext } from "../pages/Comments";
 
 const DisplayItem = (props) => {
   const commentContext = useContext(CommentContext);
-
+  console.log(commentContext);
   const { id, name, topic, body } = props.item;
   const handleClose = () => {
     fetch(`http://localhost:8080/comments/${id}`, {
