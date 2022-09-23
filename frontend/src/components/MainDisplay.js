@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import DisplayItem from "./DisplayItem";
 import style from "../componentStyles/MainDisplay.module.css";
+import { CommentContext } from "../pages/Comments";
 
-const MainDisplay = (props) => {
-  const view = props.comment
-    .slice(0)
-    .reverse()
-    .map((item) => {
-      return (
-        <DisplayItem item={item} key={item.id} handleView={props.handleView} />
-      );
-    });
+const MainDisplay = () => {
+  const commentContext = useContext(CommentContext);
+  console.log(commentContext);
+  // const view = props.comment
+  //   .slice(0)
+  //   .reverse()
+  //   .map((item) => {
+  //     return (
+  //       <DisplayItem item={item} key={item.id} handleView={props.handleView} />
+  //     );
+  //   });
 
-  return <div className={style.comment}>{view}</div>;
+  return <div className={style.comment}>{}</div>;
 };
 
 export default MainDisplay;
