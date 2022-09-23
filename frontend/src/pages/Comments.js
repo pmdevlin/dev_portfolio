@@ -1,48 +1,110 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
-import MainDisplay from "../components/MainDisplay";
+//import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
 
+export const CommentContext = React.createContext();
+
+const initialState = {
+  loading: true,
+  show: false,
+  error: "",
+  comments: {},
+};
+const ACTIONS = {
+  GET: "fetch_comments",
+  ERROR: "error_handler",
+  COMMENTS: "access_comments",
+  HIDE: "hide_comments",
+};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case ACTIONS.GET: {
+      return {
+        comments: action.payload,
+        error: "was not able to complete request for comments",
+      };
+    }
+    case ACTIONS.COMMENTS: {
+      return {
+        loading: false,
+        comments: state,
+      };
+    }
+    case ACTIONS.ERROR: {
+      return {
+        loading: false,
+      };
+    }
+    case ACTIONS.HIDE: {
+      return {
+        show: false,
+      };
+    }
+    default:
+      return state;
+  }
+};
+
 const Comments = () => {
-  const [comment, setComment] = useState();
-  const [show, setShow] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [comment, setComment] = useState();
+  // const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/comments")
+      .then((response) => {
+        dispatch({ type: ACTIONS.GET, payload: response.data });
+      })
+      .catch((error) => {
+        dispatch({ type: ACTIONS.ERROR });
+      });
+  }, []);
 
   const handleView = () => {
-    fetch("http://localhost:8080/comments")
-      .then((res) => res.json())
-      .then((data) => setComment(data))
-      .then(() => setShow(true));
+    dispatch({ type: ACTIONS.GET, show: true });
   };
   const handleHide = () => {
-    setShow(false);
+    dispatch({ type: ACTIONS.HIDE });
   };
 
   return (
-    <div className={style.container}>
-      <Navbar />
-      <div className={style.main}>
-        <CommentBox />
-        <div className={style.buttonContainer}>
-          <button className={style.button} onClick={handleView} type="button">
-            View
-          </button>
-          <button className={style.button} onClick={handleView} type="button">
-            Refresh
-          </button>
-          <button className={style.button} onClick={handleHide} type="button">
-            Hide
-          </button>
-        </div>
-        <div className={style.commentContainer}>
-          {show ? (
-            <MainDisplay comment={comment} handleView={handleView} />
-          ) : (
-            <p className={style.instructions}>To See all comments press View</p>
-          )}
+    <CommentContext.Provider
+      value={{ commentState: state, dispatch: dispatch }}
+    >
+      <div className={style.container}>
+        <Navbar />
+
+        <div className={style.main}>
+          <CommentBox />
+          <div className={style.buttonContainer}>
+            <button
+              className={style.button}
+              onClick={() => console.log(state)}
+              type="button"
+            >
+              View
+            </button>
+            <button className={style.button} onClick={handleView} type="button">
+              Refresh
+            </button>
+            <button className={style.button} onClick={handleHide} type="button">
+              Hide
+            </button>
+          </div>
+          <div className={style.commentContainer}>
+            {/* {state.show ? (
+              <MainDisplay />
+            ) : (
+              <p className={style.instructions}>
+                To See all comments press View
+              </p>
+            )} */}
+          </div>
         </div>
       </div>
-    </div>
+    </CommentContext.Provider>
   );
 };
 

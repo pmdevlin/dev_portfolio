@@ -3,8 +3,6 @@ import style from "../componentStyles/Description.module.css";
 import { FaWindowClose } from "react-icons/fa";
 
 const Description = (props) => {
-  console.log(props);
-
   const descriptionClose = () => {
     props.setVisible(false);
   };

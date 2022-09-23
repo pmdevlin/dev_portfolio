@@ -14,6 +14,7 @@ const DisplayItem = (props) => {
         console.error("Error:", error);
       });
   };
+
   return (
     <div className={style.container}>
       <div className={style.nameAndButton}>
