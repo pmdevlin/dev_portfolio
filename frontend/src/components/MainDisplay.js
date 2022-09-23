@@ -6,16 +6,14 @@ import { CommentContext } from "../pages/Comments";
 const MainDisplay = () => {
   const commentContext = useContext(CommentContext);
   console.log(commentContext.commentState.comments);
-  // const view = props.comment
-  //   .slice(0)
-  //   .reverse()
-  //   .map((item) => {
-  //     return (
-  //       <DisplayItem item={item} key={item.id} handleView={props.handleView} />
-  //     );
-  //   });
+  const view = commentContext.commentState.comments
+    .slice(0)
+    .reverse()
+    .map((item) => {
+      return <DisplayItem item={item} key={item.id} />;
+    });
 
-  return <div className={style.comment}>{}</div>;
+  return <div className={style.comment}>{view}</div>;
 };
 
 export default MainDisplay;
