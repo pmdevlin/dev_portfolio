@@ -36,6 +36,11 @@ const reducer = (state, action) => {
         comments: state,
       };
     }
+    case ACTIONS.DELETE: {
+      return {
+        id: action.payload,
+      };
+    }
     case ACTIONS.ERROR: {
       return {
         loading: false,
