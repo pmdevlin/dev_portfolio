@@ -81,7 +81,7 @@ const Comments = () => {
           <div className={style.buttonContainer}>
             <button
               className={style.button}
-              onClick={() => console.log(state.comments)}
+              onClick={() => console.log(state.commentState)}
               type="button"
             >
               View
