@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "../componentStyles/DisplayItem.module.css";
 import { FaEdit, FaWindowClose } from "react-icons/fa";
+import { CommentContext } from "../pages/Comments";
 
 const DisplayItem = (props) => {
   const commentContext = useContext(CommentContext);
