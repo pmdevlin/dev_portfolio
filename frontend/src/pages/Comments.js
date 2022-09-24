@@ -80,7 +80,7 @@ const Comments = () => {
 
   const handleView = () => {
     dispatch({ type: ACTIONS.SHOW });
-    console.log(state);
+    console.log(state.show);
   };
   const handleHide = () => {
     dispatch({ type: ACTIONS.HIDE });
