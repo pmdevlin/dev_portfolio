@@ -28,7 +28,6 @@ const reducer = (state, action) => {
     case ACTIONS.GET: {
       return {
         comments: action.payload,
-        show: true,
         error: "was not able to complete request for comments",
       };
     }
@@ -46,6 +45,11 @@ const reducer = (state, action) => {
     case ACTIONS.ERROR: {
       return {
         loading: false,
+      };
+    }
+    case ACTIONS.SHOW: {
+      return {
+        show: true,
       };
     }
     case ACTIONS.HIDE: {
@@ -75,7 +79,7 @@ const Comments = () => {
   }, []);
 
   const handleView = () => {
-    dispatch({ type: ACTIONS.GET });
+    dispatch({ type: ACTIONS.SHOW });
     console.log(state);
   };
   const handleHide = () => {
