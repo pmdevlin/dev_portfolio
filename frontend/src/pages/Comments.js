@@ -80,7 +80,7 @@ const Comments = () => {
 
   const handleView = () => {
     dispatch({ type: ACTIONS.SHOW });
-    console.log(state.show);
+    //console.log(state.show);
   };
   const handleHide = () => {
     dispatch({ type: ACTIONS.HIDE });
@@ -90,7 +90,7 @@ const Comments = () => {
   //     .delete(`http://localhost:8080/comments/${id}`)
   //     .then((data) => console.log(`delete success for comment id: ${id}`));
   // };
-  console.log(state);
+  // console.log(state);
   return (
     <CommentContext.Provider
       value={{ commentState: state, dispatch: dispatch }}
