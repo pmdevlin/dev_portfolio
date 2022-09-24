@@ -27,6 +27,7 @@ const reducer = (state, action) => {
     case ACTIONS.GET: {
       return {
         comments: action.payload,
+        show: false,
         error: "was not able to complete request for comments",
       };
     }
@@ -74,7 +75,7 @@ const Comments = () => {
 
   const handleView = () => {
     dispatch({ type: ACTIONS.GET, show: true });
-    console.log(state.show);
+    console.log(state);
   };
   const handleHide = () => {
     dispatch({ type: ACTIONS.HIDE });
@@ -84,7 +85,7 @@ const Comments = () => {
   //     .delete(`http://localhost:8080/comments/${id}`)
   //     .then((data) => console.log(`delete success for comment id: ${id}`));
   // };
-  //console.log(state);
+  console.log(state);
   return (
     <CommentContext.Provider
       value={{ commentState: state, dispatch: dispatch }}
