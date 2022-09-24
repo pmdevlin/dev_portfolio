@@ -74,7 +74,7 @@ const Comments = () => {
 
   const handleView = () => {
     dispatch({ type: ACTIONS.GET, show: true });
-    console.log(state);
+    console.log(state.show);
   };
   const handleHide = () => {
     dispatch({ type: ACTIONS.HIDE });
