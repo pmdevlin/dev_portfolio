@@ -28,7 +28,6 @@ const reducer = (state, action) => {
     case ACTIONS.GET: {
       return {
         comments: action.payload,
-        error: "was not able to complete request for comments",
       };
     }
     case ACTIONS.COMMENTS: {
