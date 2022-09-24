@@ -48,6 +48,7 @@ const reducer = (state, action) => {
     case ACTIONS.SHOW: {
       return {
         show: true,
+        comments: state,
       };
     }
     case ACTIONS.HIDE: {
