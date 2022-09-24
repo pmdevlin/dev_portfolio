@@ -33,7 +33,6 @@ const reducer = (state, action) => {
     case ACTIONS.COMMENTS: {
       return {
         loading: false,
-        ...state,
       };
     }
     case ACTIONS.DELETE: {
@@ -49,7 +48,7 @@ const reducer = (state, action) => {
     case ACTIONS.SHOW: {
       return {
         show: true,
-        comment: state,
+        ...state,
       };
     }
     case ACTIONS.HIDE: {
