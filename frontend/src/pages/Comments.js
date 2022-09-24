@@ -12,7 +12,7 @@ const initialState = {
   loading: true,
   show: false,
   error: "",
-  comments: {},
+  comments: "",
   id: "",
 };
 const ACTIONS = {
