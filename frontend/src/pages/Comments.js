@@ -33,7 +33,7 @@ const reducer = (state, action) => {
     case ACTIONS.COMMENTS: {
       return {
         loading: false,
-        comments: state,
+        ...state,
       };
     }
     case ACTIONS.DELETE: {
