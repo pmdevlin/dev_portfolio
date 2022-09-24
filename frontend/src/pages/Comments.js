@@ -94,11 +94,7 @@ const Comments = () => {
         <div className={style.main}>
           <CommentBox />
           <div className={style.buttonContainer}>
-            <button
-              className={style.button}
-              onClick={() => console.log(state)}
-              type="button"
-            >
+            <button className={style.button} onClick={handleView} type="button">
               View
             </button>
             <button className={style.button} onClick={handleView} type="button">
