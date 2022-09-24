@@ -20,6 +20,7 @@ const ACTIONS = {
   ERROR: "error_handler",
   COMMENTS: "access_comments",
   HIDE: "hide_comments",
+  SHOW: "show_comments",
   DELETE: "delete_comment",
 };
 const reducer = (state, action) => {
@@ -74,7 +75,7 @@ const Comments = () => {
   }, []);
 
   const handleView = () => {
-    dispatch({ type: ACTIONS.GET, show: true });
+    dispatch({ type: ACTIONS.GET });
     console.log(state);
   };
   const handleHide = () => {
