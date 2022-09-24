@@ -88,10 +88,10 @@ const Comments = () => {
   //     .delete(`http://localhost:8080/comments/${id}`)
   //     .then((data) => console.log(`delete success for comment id: ${id}`));
   // };
-  // console.log(state);
+
   return (
     <CommentContext.Provider
-      value={{ commentState: state, dispatch: dispatch }}
+      value={{ commentState: state.comments, dispatch: dispatch }}
     >
       <div className={style.container}>
         <Navbar />
