@@ -109,14 +109,13 @@ const Comments = () => {
             </button>
           </div>
           <div className={style.commentContainer}>
-            <MainDisplay />
-            {/* {state.show ? (
+            {state.show ? (
               <MainDisplay />
             ) : (
               <p className={style.instructions}>
                 To See all comments press View
               </p>
-            )} */}
+            )}
           </div>
         </div>
       </div>
