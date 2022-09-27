@@ -5,15 +5,15 @@ import { CommentContext } from "../pages/Comments";
 
 const MainDisplay = () => {
   const commentContext = useContext(CommentContext);
-  console.log(commentContext);
-  // const view = commentContext.commentState.comments
-  //   .slice(0)
-  //   .reverse()
-  //   .map((item) => {
-  //     return <DisplayItem item={item} key={item.id} />;
-  //   });
+  console.log(commentContext.commentState);
+  const view = commentContext.commentState
+    .slice(0)
+    .reverse()
+    .map((item) => {
+      return <DisplayItem item={item} key={item.id} />;
+    });
 
-  return <div className={style.comment}>{}</div>;
+  return <div className={style.comment}>{view}</div>;
 };
 
 export default MainDisplay;
