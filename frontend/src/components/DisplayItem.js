@@ -3,10 +3,10 @@ import style from "../componentStyles/DisplayItem.module.css";
 import { FaEdit, FaWindowClose } from "react-icons/fa";
 import { CommentContext } from "../pages/Comments";
 
-const DisplayItem = (props) => {
+const DisplayItem = () => {
   const commentContext = useContext(CommentContext);
   console.log(commentContext);
-  const { id, name, topic, body } = props.item;
+  const { id, name, topic, body } = commentContext.commentState;
   const handleClose = () => {
     fetch(`http://localhost:8080/comments/${id}`, {
       method: "DELETE",
