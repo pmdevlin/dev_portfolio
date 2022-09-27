@@ -54,7 +54,6 @@ const Comments = () => {
 
   const handleView = () => {
     setShow(true);
-    //console.log(state.show);
   };
 
   // const handleDelete = () => {
@@ -84,7 +83,11 @@ const Comments = () => {
             </button>
           </div>
           <div className={style.commentContainer}>
-            {show ? <MainDisplay /> : "Press View to see Comments"}
+            {show ? (
+              <MainDisplay />
+            ) : (
+              <p className={style.instructions}>"Press View to see Comments"</p>
+            )}
           </div>
         </div>
       </div>
