@@ -55,6 +55,9 @@ const Comments = () => {
   const handleView = () => {
     setShow(true);
   };
+  const handleHide = () => {
+    setShow(false);
+  };
 
   return (
     <CommentContext.Provider
@@ -72,7 +75,7 @@ const Comments = () => {
             <button className={style.button} type="button">
               Refresh
             </button>
-            <button className={style.button} type="button">
+            <button className={style.button} onClick={handleHide} type="button">
               Hide
             </button>
           </div>
