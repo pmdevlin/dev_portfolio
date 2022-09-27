@@ -84,6 +84,10 @@ const Comments = () => {
   const handleHide = () => {
     dispatch({ type: ACTIONS.HIDE });
   };
+
+  const handleDisplay = () => {
+    dispatch({ type: ACTIONS.SHOW });
+  };
   // const handleDelete = () => {
   //   axios
   //     .delete(`http://localhost:8080/comments/${id}`)
@@ -110,15 +114,7 @@ const Comments = () => {
               Hide
             </button>
           </div>
-          <div className={style.commentContainer}>
-            {state.show ? (
-              <MainDisplay />
-            ) : (
-              <p className={style.instructions}>
-                To See all comments press View
-              </p>
-            )}
-          </div>
+          <div className={style.commentContainer}>{handleDisplay}</div>
         </div>
       </div>
     </CommentContext.Provider>
