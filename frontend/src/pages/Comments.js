@@ -56,13 +56,7 @@ const Comments = () => {
     dispatch({ type: ACTIONS.SHOW });
     //console.log(state.show);
   };
-  const handleHide = () => {
-    dispatch({ type: ACTIONS.HIDE });
-  };
 
-  const handleDisplay = () => {
-    dispatch({ type: ACTIONS.SHOW });
-  };
   // const handleDelete = () => {
   //   axios
   //     .delete(`http://localhost:8080/comments/${id}`)
@@ -82,10 +76,10 @@ const Comments = () => {
             <button className={style.button} onClick={handleView} type="button">
               View
             </button>
-            <button className={style.button} onClick={handleView} type="button">
+            <button className={style.button} type="button">
               Refresh
             </button>
-            <button className={style.button} onClick={handleHide} type="button">
+            <button className={style.button} type="button">
               Hide
             </button>
           </div>
