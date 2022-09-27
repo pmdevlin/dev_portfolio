@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
 import axios from "axios";
@@ -39,7 +39,7 @@ const reducer = (state, action) => {
 const Comments = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   // const [comment, setComment] = useState();
-  // const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     axios
@@ -53,7 +53,7 @@ const Comments = () => {
   }, []);
 
   const handleView = () => {
-    dispatch({ type: ACTIONS.SHOW });
+    setShow(true);
     //console.log(state.show);
   };
 
@@ -83,7 +83,9 @@ const Comments = () => {
               Hide
             </button>
           </div>
-          <div className={style.commentContainer}>{}</div>
+          <div className={style.commentContainer}>
+            {show ? <MainDisplay /> : "Press View to see Comments"}
+          </div>
         </div>
       </div>
     </CommentContext.Provider>
