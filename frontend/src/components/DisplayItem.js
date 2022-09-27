@@ -5,13 +5,12 @@ import { CommentContext } from "../pages/Comments";
 
 const DisplayItem = () => {
   const commentContext = useContext(CommentContext);
-  console.log(commentContext);
+  console.log(commentContext.commentState);
   const { id, name, topic, body } = commentContext.commentState;
   const handleClose = () => {
     fetch(`http://localhost:8080/comments/${id}`, {
       method: "DELETE",
     })
-      .then(props.handleView)
       .then((data) => console.log(`successfully deleted comment ${id}`, data))
       .catch((error) => {
         console.error("Error:", error);
