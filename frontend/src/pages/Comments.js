@@ -17,11 +17,11 @@ const initialState = {
 };
 const ACTIONS = {
   GET: "fetch_comments",
-  ERROR: "error_handler",
-  COMMENTS: "access_comments",
-  HIDE: "hide_comments",
-  SHOW: "show_comments",
-  DELETE: "delete_comment",
+  // ERROR: "error_handler",
+  // COMMENTS: "access_comments",
+  // HIDE: "hide_comments",
+  // SHOW: "show_comments",
+  // DELETE: "delete_comment",
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -30,32 +30,7 @@ const reducer = (state, action) => {
         comments: action.payload,
       };
     }
-    case ACTIONS.COMMENTS: {
-      return {
-        loading: false,
-      };
-    }
-    case ACTIONS.DELETE: {
-      return {
-        id: action.payload,
-      };
-    }
-    case ACTIONS.ERROR: {
-      return {
-        loading: false,
-      };
-    }
-    case ACTIONS.SHOW: {
-      return {
-        show: true,
-        comments: state,
-      };
-    }
-    case ACTIONS.HIDE: {
-      return {
-        show: false,
-      };
-    }
+
     default:
       return state;
   }
@@ -114,7 +89,7 @@ const Comments = () => {
               Hide
             </button>
           </div>
-          <div className={style.commentContainer}>{handleDisplay}</div>
+          <div className={style.commentContainer}>{}</div>
         </div>
       </div>
     </CommentContext.Provider>
