@@ -24,17 +24,12 @@ const reducer = (state, action) => {
       };
     }
     case ACTIONS.SHOW: {
-      return {
-        show: true,
-        ...state,
-      };
     }
-    case ACTIONS.HIDE: {
-      return {
-        show: false,
-        ...state.comments,
-      };
-    }
+    // case ACTIONS.HIDE: {
+    //   return {
+    //     show: false,
+    //   };
+    // }
 
     default:
       return state;
