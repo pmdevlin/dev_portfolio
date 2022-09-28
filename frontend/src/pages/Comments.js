@@ -51,7 +51,8 @@ const Comments = () => {
       });
   }, []);
 
-  const handleView = () => {
+  const handleView = (e) => {
+    console.log(e.target);
     show ? setShow(false) : setShow(true);
   };
 
