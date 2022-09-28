@@ -23,6 +23,12 @@ const reducer = (state, action) => {
         comments: action.payload,
       };
     }
+    case ACTIONS.DELETE: {
+      return {
+        delete: action.payload,
+        ...state,
+      };
+    }
 
     default:
       return state;

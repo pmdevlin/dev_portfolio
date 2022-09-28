@@ -29,7 +29,10 @@ const DisplayItem = (props) => {
         </div>
         <div className={style.buttons}>
           <FaEdit className={style.edit} />
-          <FaWindowClose className={style.close} onClick={} />
+          <FaWindowClose
+            className={style.close}
+            onClick={context.dispatch({ type: ACTION.DELETE })}
+          />
         </div>
       </div>
       <div className={style.topicContainer}>
