@@ -24,6 +24,9 @@ const reducer = (state, action) => {
       };
     }
     case ACTIONS.SHOW: {
+      return {
+        show: true,
+      };
     }
 
     default:
