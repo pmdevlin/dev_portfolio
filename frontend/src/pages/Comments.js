@@ -59,6 +59,13 @@ const Comments = () => {
       setShow(false);
     }
   };
+
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:8080/comments/${state.delete}`)
+      .then(() => console.log(`Deleted Comment ${state.delete}`));
+  };
+
   console.log(state);
   return (
     <CommentContext.Provider
