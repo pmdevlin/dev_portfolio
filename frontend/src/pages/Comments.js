@@ -55,7 +55,7 @@ const Comments = () => {
   const handleHide = () => {
     setShow(false);
   };
-
+  console.log(state);
   return (
     <CommentContext.Provider
       value={{ commentState: state.comments, dispatch: dispatch }}
@@ -77,7 +77,7 @@ const Comments = () => {
             </button>
           </div>
           <div className={style.commentContainer}>
-            {show ? (
+            {state.show ? (
               <MainDisplay />
             ) : (
               <p className={style.instructions}>"Press View to see Comments"</p>

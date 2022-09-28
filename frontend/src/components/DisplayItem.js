@@ -4,9 +4,9 @@ import { FaEdit, FaWindowClose } from "react-icons/fa";
 import { CommentContext } from "../pages/Comments";
 
 const DisplayItem = (props) => {
-  console.log(props.item);
+  // console.log(props.item);
   const commentContext = useContext(CommentContext);
-  console.log(commentContext.commentState);
+  //console.log(commentContext.commentState);
   const { id, name, topic, body } = commentContext.commentState;
 
   const handleClose = () => {
