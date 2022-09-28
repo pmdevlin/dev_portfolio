@@ -32,7 +32,7 @@ const DisplayItem = (props) => {
           <FaEdit className={style.edit} />
           <FaWindowClose
             className={style.close}
-            // onClick={context.dispatch({ type: ACTIONS.DELETE, payload:  })}
+            onClick={() => data.dispatch({ type: ACTIONS.DELETE, payload: id })}
           />
         </div>
       </div>
