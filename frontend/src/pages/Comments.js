@@ -36,7 +36,6 @@ const reducer = (state, action) => {
 
 const Comments = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  // const [comment, setComment] = useState();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -51,7 +50,7 @@ const Comments = () => {
   }, []);
 
   const handleView = () => {
-    setShow(true);
+    dispatch({ type: ACTIONS.SHOW });
   };
   const handleHide = () => {
     setShow(false);
