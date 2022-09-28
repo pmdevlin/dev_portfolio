@@ -10,15 +10,15 @@ const DisplayItem = (props) => {
 
   const { id, name, topic, body } = props.item;
 
-  const handleClose = () => {
-    fetch(`http://localhost:8080/comments/${id}`, {
-      method: "DELETE",
-    })
-      .then((data) => console.log(`successfully deleted comment ${id}`, data))
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+  // const handleClose = () => {
+  //   fetch(`http://localhost:8080/comments/${id}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((data) => console.log(`successfully deleted comment ${id}`, data))
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // };
 
   return (
     <div className={style.container}>
@@ -29,7 +29,7 @@ const DisplayItem = (props) => {
         </div>
         <div className={style.buttons}>
           <FaEdit className={style.edit} />
-          <FaWindowClose className={style.close} onClick={handleClose} />
+          <FaWindowClose className={style.close} onClick={} />
         </div>
       </div>
       <div className={style.topicContainer}>
