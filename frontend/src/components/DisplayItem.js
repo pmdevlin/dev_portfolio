@@ -33,7 +33,7 @@ const DisplayItem = (props) => {
           <FaWindowClose
             className={style.close}
             id={id}
-            onClick={(e) => console.log(e)}
+            onClick={(e) => console.log(e.target.id)}
           />
         </div>
       </div>
