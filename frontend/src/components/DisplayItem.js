@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import style from "../componentStyles/DisplayItem.module.css";
 import { FaEdit, FaWindowClose } from "react-icons/fa";
 import { CommentContext } from "../pages/Comments";
+import { ACTIONS } from "../pages/Comments";
 
 const DisplayItem = (props) => {
   // console.log(props.item);
@@ -31,7 +32,7 @@ const DisplayItem = (props) => {
           <FaEdit className={style.edit} />
           <FaWindowClose
             className={style.close}
-            onClick={context.dispatch({ type: ACTION.DELETE })}
+            // onClick={context.dispatch({ type: ACTIONS.DELETE, payload:  })}
           />
         </div>
       </div>

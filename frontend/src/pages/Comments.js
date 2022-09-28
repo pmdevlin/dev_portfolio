@@ -13,8 +13,9 @@ const initialState = {
   delete: 0,
   comments: "",
 };
-const ACTIONS = {
+export const ACTIONS = {
   GET: "fetch_comments",
+  DELETE: "delete_comment",
 };
 const reducer = (state, action) => {
   switch (action.type) {
