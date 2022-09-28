@@ -8,6 +8,7 @@ const DisplayItem = (props) => {
   const commentContext = useContext(CommentContext);
   console.log(commentContext.commentState);
   const { id, name, topic, body } = commentContext.commentState;
+
   const handleClose = () => {
     fetch(`http://localhost:8080/comments/${id}`, {
       method: "DELETE",
