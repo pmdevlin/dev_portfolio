@@ -59,12 +59,41 @@ const Comments = () => {
       setShow(false);
     }
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const postData = {
+      name: e.target[0].value,
+      topic: e.target[1].value,
+      body: e.target[2].value,
+    };
+    fetch("http://localhost:8080/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(postData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("success", data))
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
+    e.target[0].value = "";
+    e.target[1].value = "";
+    e.target[2].value = "";
+
+    console.log(postData);
+  };
 
   const handleDelete = (e) => {
     axios
       .delete(`http://localhost:8080/comments/${e.target.id}`)
       .then(() => console.log(`Deleted Comment ${e.target.id}`))
-      .then(() => setShow(true));
+      .catch((err) => {
+        console.error(err.message);
+      });
   };
 
   console.log(state);
@@ -74,6 +103,7 @@ const Comments = () => {
         commentState: state.comments,
         dispatch: dispatch,
         handleDelete: handleDelete,
+        handleSubmit: handleSubmit,
       }}
     >
       <div className={style.container}>
