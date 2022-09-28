@@ -32,7 +32,7 @@ const DisplayItem = (props) => {
           <FaEdit className={style.edit} />
           <FaWindowClose
             className={style.close}
-            onClick={(e) => console.log(e.target)}
+            onClick={(e) => console.log(e)}
           />
         </div>
       </div>
