@@ -60,7 +60,9 @@ const Comments = () => {
     }
   };
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    console.log(e.target.id);
+
     console.log("got it ");
 
     // axios
