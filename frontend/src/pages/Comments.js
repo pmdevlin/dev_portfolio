@@ -29,6 +29,12 @@ const reducer = (state, action) => {
         ...state,
       };
     }
+    case ACTIONS.HIDE: {
+      return {
+        show: false,
+        ...state.comments,
+      };
+    }
 
     default:
       return state;
@@ -53,9 +59,9 @@ const Comments = () => {
   const handleView = () => {
     dispatch({ type: ACTIONS.SHOW });
   };
-  // const handleHide = () => {
-  //   setShow(false);
-  // };
+  const handleHide = () => {
+    dispatch({ type: ACTIONS.HIDE });
+  };
   console.log(state);
   return (
     <CommentContext.Provider
@@ -73,7 +79,7 @@ const Comments = () => {
             <button className={style.button} type="button">
               Refresh
             </button>
-            <button className={style.button} type="button">
+            <button className={style.button} onClick={handleHide} type="button">
               Hide
             </button>
           </div>
