@@ -51,8 +51,7 @@ const Comments = () => {
       });
   }, []);
 
-  const handleView = (e) => {
-    console.log(e.target.id);
+  const handleViews = (e) => {
     if (e.target.id === "view") {
       setShow(true);
     }
@@ -74,7 +73,7 @@ const Comments = () => {
             <button
               className={style.button}
               id="view"
-              onClick={handleView}
+              onClick={handleViews}
               type="button"
             >
               View
@@ -85,7 +84,7 @@ const Comments = () => {
             <button
               className={style.button}
               id="hide"
-              onClick={handleView}
+              onClick={handleViews}
               type="button"
             >
               Hide
