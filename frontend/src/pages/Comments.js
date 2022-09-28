@@ -10,7 +10,7 @@ export const CommentContext = React.createContext();
 
 const initialState = {
   update: "",
-  delete: 0,
+  // delete: 0,
   comments: "",
 };
 export const ACTIONS = {
@@ -24,12 +24,12 @@ const reducer = (state, action) => {
         comments: action.payload,
       };
     }
-    case ACTIONS.DELETE: {
-      return {
-        delete: action.payload,
-        ...state,
-      };
-    }
+    // case ACTIONS.DELETE: {
+    //   return {
+    //     delete: action.payload,
+    //     ...state,
+    //   };
+    // }
 
     default:
       return state;
@@ -61,16 +61,10 @@ const Comments = () => {
   };
 
   const handleDelete = (e) => {
-    console.log("got it ");
-    dispatch({ type: ACTIONS.DELETE, payload: e.target.id });
-    if (state.delete === e.target.id) {
-      axios
-        .delete(`http://localhost:8080/comments/${state.delete}`)
-        .then(() => console.log(`Deleted Comment ${state.delete}`))
-        .then(() => setShow(true));
-    } else {
-      console.log("try again");
-    }
+    axios
+      .delete(`http://localhost:8080/comments/${e.target.id}`)
+      .then(() => console.log(`Deleted Comment ${e.target.id}`))
+      .then(() => setShow(true));
   };
 
   console.log(state);
