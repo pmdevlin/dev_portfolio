@@ -45,8 +45,8 @@ const Comments = () => {
       .then((response) => {
         dispatch({ type: ACTIONS.GET, payload: response.data });
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.error(err.message);
       });
   }, []);
 
