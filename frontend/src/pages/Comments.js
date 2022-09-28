@@ -66,7 +66,8 @@ const Comments = () => {
     if (state.delete === e.target.id) {
       axios
         .delete(`http://localhost:8080/comments/${state.delete}`)
-        .then(() => console.log(`Deleted Comment ${state.delete}`));
+        .then(() => console.log(`Deleted Comment ${state.delete}`))
+        .then(() => setShow(true));
     } else {
       console.log("try again");
     }
