@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import style from "../componentStyles/DisplayItem.module.css";
 import { FaEdit, FaWindowClose } from "react-icons/fa";
-import { CommentContext } from "../pages/Comments";
 
 const DisplayItem = (props) => {
   // console.log(props.item);
-  const commentContext = useContext(CommentContext);
-  //console.log(commentContext.commentState);
-  const { id, name, topic, body } = commentContext.commentState;
+
+  const { id, name, topic, body } = props.item;
 
   const handleClose = () => {
     fetch(`http://localhost:8080/comments/${id}`, {

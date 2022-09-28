@@ -5,12 +5,11 @@ import { CommentContext } from "../pages/Comments";
 
 const MainDisplay = () => {
   const commentContext = useContext(CommentContext);
-  //console.log(commentContext.commentState);
   const view = commentContext.commentState
     .slice(0)
     .reverse()
     .map((item) => {
-      return <DisplayItem item={item.id} key={item.id} />;
+      return <DisplayItem item={item} key={item.id} />;
     });
 
   return <div className={style.comment}>{view}</div>;
