@@ -59,7 +59,7 @@ const Comments = () => {
       setShow(false);
     }
   };
-
+  console.log(state);
   return (
     <CommentContext.Provider
       value={{ commentState: state.comments, dispatch: dispatch }}
