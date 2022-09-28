@@ -38,7 +38,7 @@ const reducer = (state, action) => {
 
 const Comments = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  //const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     axios
@@ -52,12 +52,9 @@ const Comments = () => {
   }, []);
 
   const handleView = () => {
-    dispatch({ type: ACTIONS.SHOW });
+    show ? setShow(false) : setShow(true);
   };
-  const handleHide = () => {
-    dispatch({ type: ACTIONS.HIDE });
-  };
-  console.log(state);
+
   return (
     <CommentContext.Provider
       value={{ commentState: state.comments, dispatch: dispatch }}
@@ -74,12 +71,12 @@ const Comments = () => {
             <button className={style.button} type="button">
               Refresh
             </button>
-            <button className={style.button} onClick={handleHide} type="button">
+            <button className={style.button} onClick={handleView} type="button">
               Hide
             </button>
           </div>
           <div className={style.commentContainer}>
-            {state.show ? (
+            {show ? (
               <MainDisplay />
             ) : (
               <p className={style.instructions}>"Press View to see Comments"</p>
