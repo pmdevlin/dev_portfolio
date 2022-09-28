@@ -61,9 +61,11 @@ const Comments = () => {
   };
 
   const handleDelete = () => {
-    axios
-      .delete(`http://localhost:8080/comments/${state.delete}`)
-      .then(() => console.log(`Deleted Comment ${state.delete}`));
+    console.log("got it ");
+
+    // axios
+    //   .delete(`http://localhost:8080/comments/${state.delete}`)
+    //   .then(() => console.log(`Deleted Comment ${state.delete}`));
   };
 
   console.log(state);
