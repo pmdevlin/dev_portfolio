@@ -6,7 +6,7 @@ import { ACTIONS } from "../pages/Comments";
 
 const DisplayItem = (props) => {
   // console.log(props.item);
-  const context = useContext(CommentContext);
+  const data = useContext(CommentContext);
   console.log(context);
 
   const { id, name, topic, body } = props.item;
