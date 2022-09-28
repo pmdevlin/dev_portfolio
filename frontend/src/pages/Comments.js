@@ -61,12 +61,11 @@ const Comments = () => {
   };
 
   const handleDelete = (e) => {
-    console.log(e.target.id);
-
     console.log("got it ");
+    dispatch({ type: ACTIONS.DELETE, payload: e.target.id });
 
     // axios
-    //   .delete(`http://localhost:8080/comments/${state.delete}`)
+    //   .delete(`http://localhost:8080/comments/${}`)
     //   .then(() => console.log(`Deleted Comment ${state.delete}`));
   };
 
