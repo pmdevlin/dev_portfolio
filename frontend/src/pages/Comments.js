@@ -9,12 +9,12 @@ import style from "../styles/Comments.module.css";
 export const CommentContext = React.createContext();
 
 const initialState = {
-  show: false,
+  update: "",
+  delete: 0,
   comments: "",
 };
 const ACTIONS = {
   GET: "fetch_comments",
-  SHOW: "show_comments",
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,13 +23,6 @@ const reducer = (state, action) => {
         comments: action.payload,
       };
     }
-    case ACTIONS.SHOW: {
-    }
-    // case ACTIONS.HIDE: {
-    //   return {
-    //     show: false,
-    //   };
-    // }
 
     default:
       return state;
