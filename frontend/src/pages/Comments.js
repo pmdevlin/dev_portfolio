@@ -52,8 +52,12 @@ const Comments = () => {
   }, []);
 
   const handleView = (e) => {
-    console.log(e.target);
-    show ? setShow(false) : setShow(true);
+    console.log(e.target.id);
+    if (e.target.id === "view") {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
   };
 
   return (
@@ -66,13 +70,23 @@ const Comments = () => {
         <div className={style.main}>
           <CommentBox />
           <div className={style.buttonContainer}>
-            <button className={style.button} onClick={handleView} type="button">
+            <button
+              className={style.button}
+              id="view"
+              onClick={handleView}
+              type="button"
+            >
               View
             </button>
             <button className={style.button} type="button">
               Refresh
             </button>
-            <button className={style.button} onClick={handleView} type="button">
+            <button
+              className={style.button}
+              id="hide"
+              onClick={handleView}
+              type="button"
+            >
               Hide
             </button>
           </div>
