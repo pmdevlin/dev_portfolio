@@ -63,10 +63,13 @@ const Comments = () => {
   const handleDelete = (e) => {
     console.log("got it ");
     dispatch({ type: ACTIONS.DELETE, payload: e.target.id });
-
-    // axios
-    //   .delete(`http://localhost:8080/comments/${}`)
-    //   .then(() => console.log(`Deleted Comment ${state.delete}`));
+    if (state.delete) {
+      axios
+        .delete(`http://localhost:8080/comments/${state.delete}`)
+        .then(() => console.log(`Deleted Comment ${state.delete}`));
+    } else {
+      console.log("try again");
+    }
   };
 
   console.log(state);
