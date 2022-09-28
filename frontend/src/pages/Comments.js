@@ -55,7 +55,8 @@ const Comments = () => {
     console.log(e.target.id);
     if (e.target.id === "view") {
       setShow(true);
-    } else {
+    }
+    if (e.target.id === "hide") {
       setShow(false);
     }
   };
