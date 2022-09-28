@@ -69,7 +69,11 @@ const Comments = () => {
   console.log(state);
   return (
     <CommentContext.Provider
-      value={{ commentState: state.comments, dispatch: dispatch }}
+      value={{
+        commentState: state.comments,
+        dispatch: dispatch,
+        handleDelete: handleDelete,
+      }}
     >
       <div className={style.container}>
         <Navbar />
