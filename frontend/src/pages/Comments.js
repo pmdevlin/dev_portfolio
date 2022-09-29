@@ -4,13 +4,10 @@ import CommentBox from "../components/CommentBox";
 import axios from "axios";
 import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
-//import { FaGit } from "react-icons/fa";
 
 export const CommentContext = React.createContext();
 
 const initialState = {
-  update: "",
-  // delete: 0,
   comments: "",
 };
 export const ACTIONS = {
@@ -24,13 +21,6 @@ const reducer = (state, action) => {
         comments: action.payload,
       };
     }
-    // case ACTIONS.DELETE: {
-    //   return {
-    //     delete: action.payload,
-    //     ...state,
-    //   };
-    // }
-
     default:
       return state;
   }
@@ -39,6 +29,7 @@ const reducer = (state, action) => {
 const Comments = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [show, setShow] = useState(false);
+  const [rerender, setRerender] = useState(false);
 
   useEffect(() => {
     axios
@@ -49,14 +40,16 @@ const Comments = () => {
       .catch((err) => {
         console.error(err.message);
       });
-  }, []);
+  }, [rerender]);
 
   const handleViews = (e) => {
     if (e.target.id === "view") {
       setShow(true);
+      setRerender(!rerender);
     }
     if (e.target.id === "hide") {
       setShow(false);
+      setRerender(!rerender);
     }
   };
   const handleSubmit = (e) => {
@@ -76,6 +69,7 @@ const Comments = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log("success", data))
+      .then(() => setRerender(!rerender))
       .catch((error) => {
         console.error("Error:", error);
       });
@@ -84,19 +78,19 @@ const Comments = () => {
     e.target[1].value = "";
     e.target[2].value = "";
 
-    console.log(postData);
+    // console.log(postData);
   };
 
   const handleDelete = (e) => {
     axios
       .delete(`http://localhost:8080/comments/${e.target.id}`)
       .then(() => console.log(`Deleted Comment ${e.target.id}`))
+      .then(() => setRerender(!rerender))
       .catch((err) => {
         console.error(err.message);
       });
   };
 
-  console.log(state);
   return (
     <CommentContext.Provider
       value={{

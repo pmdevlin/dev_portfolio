@@ -2,24 +2,10 @@ import React, { useContext } from "react";
 import style from "../componentStyles/DisplayItem.module.css";
 import { FaEdit, FaWindowClose } from "react-icons/fa";
 import { CommentContext } from "../pages/Comments";
-import { ACTIONS } from "../pages/Comments";
 
 const DisplayItem = (props) => {
-  // console.log(props.item);
   const data = useContext(CommentContext);
-  //console.log(data);
-
   const { id, name, topic, body } = props.item;
-
-  // const handleClose = () => {
-  //   fetch(`http://localhost:8080/comments/${id}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then((data) => console.log(`successfully deleted comment ${id}`, data))
-  //     .catch((error) => {
-  //       console.error("Error:", error);
-  //     });
-  // };
 
   return (
     <div className={style.container}>
@@ -29,7 +15,11 @@ const DisplayItem = (props) => {
           <h3 className={style.input}>{name}</h3>
         </div>
         <div className={style.buttons}>
-          <FaEdit className={style.edit} />
+          <FaEdit
+            className={style.edit}
+            id={id}
+            onClick={() => console.log("this is the edit button")}
+          />
           <FaWindowClose
             className={style.close}
             id={id}
