@@ -4,7 +4,7 @@ import { CommentContext } from "../pages/Comments";
 
 const CommentBox = () => {
   const data = useContext(CommentContext);
-
+  //console.log(data);
   return (
     <div className={style.container}>
       <div className={style.main}>

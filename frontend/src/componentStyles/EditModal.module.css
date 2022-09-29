@@ -1,5 +1,5 @@
 .EditModal {
-  display: none; /* Hidden by default */
+  /* display: none;  */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -9,4 +9,60 @@
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.container {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 674px;
+  height: 352px; /* Could be more or less, depending on screen size */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameBox,
+.topicBox,
+.bodyBox {
+  border-radius: 9px;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.nameBox,
+.topicBox {
+  height: 1.5rem;
+}
+.bodyBox {
+  height: 7.5rem;
+  display: flex;
+  overflow-wrap: break-word;
+}
+.button {
+  width: 6rem;
+  height: 1.5rem;
+  align-self: center;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px var(--neon-green);
+}
+.title {
+  color: var(--neon-green);
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.1052px;
+  line-height: 14px;
+}
+
+.input {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23.2207px;
+  line-height: 24px;
+  color: var();
 }

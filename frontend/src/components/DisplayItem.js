@@ -15,11 +15,7 @@ const DisplayItem = (props) => {
           <h3 className={style.input}>{name}</h3>
         </div>
         <div className={style.buttons}>
-          <FaEdit
-            className={style.edit}
-            id={id}
-            onClick={() => console.log("this is the edit button")}
-          />
+          <FaEdit className={style.edit} id={id} onClick={data.handleModal} />
           <FaWindowClose
             className={style.close}
             id={id}

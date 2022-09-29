@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useReducer } from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
+import EditModal from "../components/EditModal";
 import axios from "axios";
 import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
@@ -30,6 +31,7 @@ const Comments = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [show, setShow] = useState(false);
   const [rerender, setRerender] = useState(false);
+  const [display, setDisplay] = useState(false);
 
   useEffect(() => {
     axios
@@ -107,6 +109,9 @@ const Comments = () => {
   // CONNECT TO MODAL --> INCOMPLETE
   // SEND THE REQUEST --> INCOMPLETE
   // STYLING OF MODAL --> INCOMPLETE
+  const handleModal = () => {
+    setDisplay(!display);
+  };
 
   return (
     <CommentContext.Provider
@@ -115,6 +120,8 @@ const Comments = () => {
         dispatch: dispatch,
         handleDelete: handleDelete,
         handleSubmit: handleSubmit,
+        handleModal: handleModal,
+        display: display,
       }}
     >
       <div className={style.container}>
@@ -122,6 +129,8 @@ const Comments = () => {
 
         <div className={style.main}>
           <CommentBox />
+          <EditModal />
+
           <div className={style.buttonContainer}>
             <button
               className={style.button}

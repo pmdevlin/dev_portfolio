@@ -1,14 +1,32 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+import { CommentContext } from "../pages/Comments";
 import style from "../componentStyles/EditModal.module.css";
+import { FaWindowClose } from "react-icons/fa";
 
 const EditModal = () => {
-  const [display, setDisplay] = useState(false);
+  const funcData = useContext(CommentContext);
+  return (
+    <div
+      className={style.EditModal}
+      style={{ display: funcData.display ? "block" : "none" }}
+    >
+      <div className={style.container}>
+        <FaWindowClose onClick={funcData.handleModal} />
+        <form className={style.form}>
+          <label className={style.title}>Name</label>
+          <input className={style.nameBox} type="text" />
 
-  // const OpenModal = () =>{
+          <label className={style.title}>Topic</label>
+          <input className={style.topicBox} type="text" />
 
-  // }
+          <label className={style.title}>Comment</label>
+          <textarea className={style.bodyBox} type="text"></textarea>
 
-  return <div className={style.EditModal}>EditModal</div>;
+          <input className={style.button} type="submit" value="submit" />
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default EditModal;
