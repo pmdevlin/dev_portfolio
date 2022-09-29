@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import style from "../componentStyles/EditModal.module.css";
 
 const EditModal = () => {

@@ -42,6 +42,9 @@ const Comments = () => {
       });
   }, [rerender]);
 
+  // RENDERING VIEW AND HIDE BUTTONS --> COMPLETED
+  // LOGIC TO HANDLE BOTH IN ONE FUNCTION --> COMPLETED
+  // TRIGGER A RENDER WHEN CLICKED ON EITHER BUTTON --> COMPLETED
   const handleViews = (e) => {
     if (e.target.id === "view") {
       setShow(true);
@@ -52,6 +55,12 @@ const Comments = () => {
       setRerender(!rerender);
     }
   };
+
+  // POST REQUEST FUNCTION --> COMPLETED
+  // CREATE REQUEST OBJECT --> COMPLETED
+  // FETCH POST REQUEST --> COMPLETED
+  // INSTANT RERENDER --> COMPLETED
+  // CLEAR FIELDS ON SUBMIT --> COMPLETED
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -81,6 +90,9 @@ const Comments = () => {
     // console.log(postData);
   };
 
+  // DELETE REQUEST --> COMPLETED
+  // CONNECT ID TO THE DELETE FUNCTION --> COMPLETED
+  // RERENDER OF PAGE AFTER DELETE --> COMPLETED
   const handleDelete = (e) => {
     axios
       .delete(`http://localhost:8080/comments/${e.target.id}`)
@@ -90,6 +102,11 @@ const Comments = () => {
         console.error(err.message);
       });
   };
+
+  // PUT REQUEST
+  // CONNECT TO MODAL --> INCOMPLETE
+  // SEND THE REQUEST --> INCOMPLETE
+  // STYLING OF MODAL --> INCOMPLETE
 
   return (
     <CommentContext.Provider
