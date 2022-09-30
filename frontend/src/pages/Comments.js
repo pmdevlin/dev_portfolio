@@ -32,6 +32,7 @@ const Comments = () => {
   const [show, setShow] = useState(false);
   const [rerender, setRerender] = useState(false);
   const [display, setDisplay] = useState(false);
+  const [modal, setModal] = useState({});
 
   useEffect(() => {
     axios
@@ -109,8 +110,26 @@ const Comments = () => {
   // CONNECT TO MODAL --> INCOMPLETE
   // SEND THE REQUEST --> INCOMPLETE
   // STYLING OF MODAL --> INCOMPLETE
-  const handleModal = () => {
-    setDisplay(!display);
+  const handleModal = (e) => {
+    const target = e.currentTarget.id;
+    const commentArr = state.comments;
+    const modalObj = {};
+    for (const elem of commentArr) {
+      if (elem.id == target) {
+        modalObj.name = elem.name;
+        modalObj.topic = elem.topic;
+        modalObj.body = elem.body;
+      }
+    }
+    setModal((modal) => ({
+      ...modal,
+      ...modalObj,
+    }));
+
+    setDisplay(true);
+  };
+  const closeModal = () => {
+    setDisplay(false);
   };
 
   return (
@@ -121,7 +140,9 @@ const Comments = () => {
         handleDelete: handleDelete,
         handleSubmit: handleSubmit,
         handleModal: handleModal,
+        closeModal: closeModal,
         display: display,
+        modal: modal,
       }}
     >
       <div className={style.container}>

@@ -5,13 +5,14 @@ import { FaWindowClose } from "react-icons/fa";
 
 const EditModal = () => {
   const funcData = useContext(CommentContext);
+
   return (
     <div
       className={style.EditModal}
       style={{ display: funcData.display ? "block" : "none" }}
     >
       <div className={style.container}>
-        <FaWindowClose onClick={funcData.handleModal} />
+        <FaWindowClose onClick={funcData.closeModal} />
         <form className={style.form}>
           <label className={style.title}>Name</label>
           <input className={style.nameBox} type="text" />
