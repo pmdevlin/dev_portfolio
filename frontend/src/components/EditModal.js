@@ -4,24 +4,38 @@ import style from "../componentStyles/EditModal.module.css";
 import { FaWindowClose } from "react-icons/fa";
 
 const EditModal = () => {
-  const funcData = useContext(CommentContext);
+  const data = useContext(CommentContext);
+
+  // console.log(funcData.modal);
 
   return (
     <div
       className={style.EditModal}
-      style={{ display: funcData.display ? "block" : "none" }}
+      style={{ display: data.display ? "block" : "none" }}
     >
       <div className={style.container}>
-        <FaWindowClose onClick={funcData.closeModal} />
-        <form className={style.form}>
+        <FaWindowClose onClick={data.closeModal} />
+        <form className={style.form} onSubmit={data.handleUpdate}>
           <label className={style.title}>Name</label>
-          <input className={style.nameBox} type="text" />
+          <input
+            className={style.nameBox}
+            type="text"
+            placeholder={data.modal.name}
+          />
 
           <label className={style.title}>Topic</label>
-          <input className={style.topicBox} type="text" />
+          <input
+            className={style.topicBox}
+            type="text"
+            placeholder={data.modal.topic}
+          />
 
           <label className={style.title}>Comment</label>
-          <textarea className={style.bodyBox} type="text"></textarea>
+          <textarea
+            className={style.bodyBox}
+            type="text"
+            placeholder={data.modal.body}
+          ></textarea>
 
           <input className={style.button} type="submit" value="submit" />
         </form>

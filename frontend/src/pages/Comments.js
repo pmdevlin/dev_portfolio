@@ -107,15 +107,29 @@ const Comments = () => {
   };
 
   // PUT REQUEST
-  // CONNECT TO MODAL --> INCOMPLETE
+  // CONNECT TO MODAL --> COMPLETE
   // SEND THE REQUEST --> INCOMPLETE
   // STYLING OF MODAL --> INCOMPLETE
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    console.log(e);
+    const newUpdate = {
+      name: e.target[0].value,
+      topic: e.target[1].value,
+      body: e.target[2].value,
+    };
+
+    console.log(newUpdate);
+  };
+
   const handleModal = (e) => {
     const target = e.currentTarget.id;
     const commentArr = state.comments;
     const modalObj = {};
     for (const elem of commentArr) {
+      // eslint-disable-next-line
       if (elem.id == target) {
+        modalObj.id = elem.id;
         modalObj.name = elem.name;
         modalObj.topic = elem.topic;
         modalObj.body = elem.body;
@@ -139,6 +153,7 @@ const Comments = () => {
         dispatch: dispatch,
         handleDelete: handleDelete,
         handleSubmit: handleSubmit,
+        handleUpdate: handleUpdate,
         handleModal: handleModal,
         closeModal: closeModal,
         display: display,
