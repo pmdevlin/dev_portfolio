@@ -108,7 +108,7 @@ const Comments = () => {
 
   // PUT REQUEST
   // CONNECT TO MODAL --> COMPLETE
-  // SEND THE REQUEST --> INCOMPLETE
+  // SEND THE REQUEST --> COMPLETE
   // STYLING OF MODAL --> INCOMPLETE
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -127,7 +127,6 @@ const Comments = () => {
       .catch((err) => {
         console.error(err.message);
       });
-    console.log(newUpdate);
   };
 
   const handleModal = (e) => {

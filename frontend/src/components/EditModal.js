@@ -14,7 +14,7 @@ const EditModal = () => {
       style={{ display: data.display ? "block" : "none" }}
     >
       <div className={style.container}>
-        <FaWindowClose onClick={data.closeModal} />
+        <FaWindowClose className={style.close} onClick={data.closeModal} />
         <form
           className={style.form}
           id={data.modal.id}
