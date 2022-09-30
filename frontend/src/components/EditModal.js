@@ -15,7 +15,11 @@ const EditModal = () => {
     >
       <div className={style.container}>
         <FaWindowClose onClick={data.closeModal} />
-        <form className={style.form} onSubmit={data.handleUpdate}>
+        <form
+          className={style.form}
+          id={data.modal.id}
+          onSubmit={data.handleUpdate}
+        >
           <label className={style.title}>Name</label>
           <input
             className={style.nameBox}
