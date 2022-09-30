@@ -183,9 +183,9 @@ const Comments = () => {
             >
               View
             </button>
-            <button className={style.button} type="button">
+            {/* <button className={style.button} type="button">
               Refresh
-            </button>
+            </button> */}
             <button
               className={style.button}
               id="hide"
