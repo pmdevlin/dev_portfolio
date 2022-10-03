@@ -2,7 +2,11 @@ import React from "react";
 import style from "../styles/About.module.css";
 import Navbar from "../components/Navbar";
 import photo from "../images/profilepicthumbnail.png";
+import skills from "../utils/skills";
+import { Skill } from "../components/Skill";
 const About = () => {
+  const skillGenerator = skills.map((item, key) => {});
+
   return (
     <div className={style.container}>
       <Navbar />
@@ -16,7 +20,9 @@ const About = () => {
             <img className={style.profilePic} src={photo} alt="profilePic" />
           </div>
           <h2 className={style.skillsTitle}>Some of my Skills</h2>
-          <div className={style.skills}></div>
+          <div className={style.skills}>
+            <Skill />
+          </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useReducer } from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
 import EditModal from "../components/EditModal";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
 
@@ -10,16 +10,43 @@ export const CommentContext = React.createContext();
 
 const initialState = {
   comments: "",
+  id: 0,
 };
 export const ACTIONS = {
   GET: "fetch_comments",
+  UPDATE: "update_comment",
   DELETE: "delete_comment",
 };
 const reducer = (state, action) => {
+  console.log(state);
   switch (action.type) {
     case ACTIONS.GET: {
       return {
         comments: action.payload,
+      };
+    }
+    case ACTIONS.DELETE: {
+      return {
+        id: action.payload,
+        comments: [
+          state.comments.filter((item, key) => {
+            if (state.id !== item.id) {
+              return item;
+            }
+          }),
+        ],
+        // ...state,
+        // state.map((item) => {
+        //   if (item.id !== state.id) {
+        //     console.log(state.id);
+        //     // axios
+        //     //   .delete(`http://localhost:8080/comments/${id}}`)
+        //     //   .then(() => console.log(`delete of ${id} completed`));
+        //     return item;
+        //   } else {
+        //     console.log("not working");
+        //   }
+        // }),
       };
     }
     default:
@@ -97,13 +124,14 @@ const Comments = () => {
   // CONNECT ID TO THE DELETE FUNCTION --> COMPLETED
   // RERENDER OF PAGE AFTER DELETE --> COMPLETED
   const handleDelete = (e) => {
-    axios
-      .delete(`http://localhost:8080/comments/${e.target.id}`)
-      .then(() => console.log(`Deleted Comment ${e.target.id}`))
-      .then(() => setRerender(!rerender))
-      .catch((err) => {
-        console.error(err.message);
-      });
+    dispatch({ type: ACTIONS.DELETE, payload: e.currentTarget.id });
+    // axios
+    //   .delete(`http://localhost:8080/comments/${e.target.id}`)
+    //   .then(() => console.log(`Deleted Comment ${e.target.id}`))
+    //   .then(() => setRerender(!rerender))
+    //   .catch((err) => {
+    //     console.error(err.message);
+    //   });
   };
 
   // PUT REQUEST
