@@ -1,7 +1,7 @@
 .container {
-  height: 10rem;
   width: 850px;
   background-color: var(--light-grey);
+  padding: 1rem;
 }
 
 .titleBox {
@@ -9,12 +9,13 @@
   justify-content: space-between;
   margin: 1rem;
 }
-.info {
+.lists {
   margin: 1rem;
-  color: var(--dark-black);
-  font-family: "Inconsolata";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13.1052px;
-  line-height: 14px;
+}
+.tech,
+.link {
+  margin: 1rem;
+}
+.photos {
+  border: 1px solid red;
 }
