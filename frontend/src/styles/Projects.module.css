@@ -3,12 +3,12 @@
   background-color: var(--main-black);
 }
 
-.infoContainer {
-  margin-top: 4rem;
+/* .infoContainer {
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
-  margin-top: 10rem;
-}
+  border: 1px solid green;
+} */
 .display {
   margin-top: 5rem;
   display: flex;
