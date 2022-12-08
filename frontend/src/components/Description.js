@@ -10,12 +10,6 @@ const Description = (props) => {
     props.setVisible(false);
   };
 
-  const graphicDisplay = () => {
-    graphics.map((item) => {
-      return <img src={item}></img>;
-    });
-  };
-
   return (
     <div className={style.master}>
       <div className={style.container}>
@@ -26,7 +20,7 @@ const Description = (props) => {
         <span className={style.tech}>{tech}</span>
         <span className={style.info}>{info}</span>
         <a href={link} className={style.link} rel="noreferrer" target="_blank">
-          Code Theory Repo
+          {name} Repo
         </a>
         <div className={style.photos}>
           <img className={style.thumbnails} src={graphics[0]} alt=""></img>
