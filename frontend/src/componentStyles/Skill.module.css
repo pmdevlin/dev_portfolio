@@ -1,5 +1,17 @@
 .container {
-  border: 1px solid red;
+  border: 1px solid whitesmoke;
   height: 1.8rem;
   display: flex;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  flex-direction: row;
+  align-items: center;
+}
+.percent {
+  margin: 0;
+  justify-self: flex-start;
+}
+.type {
+  margin-right: auto;
+  margin-left: 1rem;
 }
