@@ -5,8 +5,9 @@
 }
 
 .main {
-  margin-top: 4rem;
+  margin-top: 1rem;
   display: flex;
+  /* border: 1px solid red; */
 }
 .L,
 .R {
@@ -17,50 +18,29 @@
   border: #1fe857;
   height: 75vh;
   width: 50%;
+  border: 1px solid teal;
 }
 
 .introTitle {
-  width: 8.5rem;
-  height: 2.25rem;
+  margin-left: 1rem;
   font-family: "Inconsolata", monospace;
   font-style: normal;
   font-weight: 400;
   font-size: 34px;
-  line-height: 36px;
   color: #ffffff;
-  align-self: flex-start;
-  margin-left: 14.2rem;
-  margin-top: 4rem;
 }
 .intro {
-  width: 31.25rem;
+  margin: 1rem;
   height: 44.813rem;
   background: #333333;
-  border: 2px solid #1fe857;
-}
-
-.image {
-  border: 2px solid green;
-  border-radius: 50%;
-  height: 400px;
-  width: 400px;
-  margin-bottom: 0.5rem;
-}
-.profilePic {
-  border-radius: 50%;
-  height: 400px;
-  width: 400px;
-  margin-bottom: 3rem;
 }
 
 .skillsTitle {
-  width: 19rem;
-  align-self: flex-start;
   font-family: "Inconsolata", monospace;
   font-style: normal;
   font-weight: 400;
   font-size: 34px;
-  line-height: 36px;
+
   color: #ffffff;
   margin-left: 9.2rem;
 }
@@ -71,4 +51,16 @@
   background: #333333;
   border: 2px solid #1fe857;
   margin-top: 0;
+}
+
+.introDiv {
+  border: 1px solid red;
+}
+.introUl {
+  list-style: none;
+  /* border: 1px solid greenyellow; */
+}
+.introLi {
+  margin: 1rem;
+  color: var(--light-grey);
 }

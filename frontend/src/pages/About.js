@@ -1,29 +1,24 @@
 import React from "react";
 import style from "../styles/About.module.css";
 import Navbar from "../components/Navbar";
-import photo from "../images/profilepicthumbnail.png";
-import skills from "../utils/skills";
-import { Skill } from "../components/Skill";
-const About = () => {
-  const skillGenerator = skills.map((item, key) => {});
+import intro from "../utils/Into";
+import SkillObj from "../utils/skills";
+import Skill from "../components/Skill";
 
+const About = () => {
   return (
     <div className={style.container}>
       <Navbar />
       <div className={style.main}>
         <div className={style.L}>
-          <h2 className={style.introTitle}>About Me</h2>
-          <div className={style.intro}></div>
-        </div>
-        <div className={style.R}>
-          <div className={style.image}>
-            <img className={style.profilePic} src={photo} alt="profilePic" />
-          </div>
-          <h2 className={style.skillsTitle}>Some of my Skills</h2>
+          <div className={style.intro}>{intro.intro}</div>
+
           <div className={style.skills}>
+            <h2 className={style.skillsTitle}>Some of my Skills</h2>
             <Skill />
           </div>
         </div>
+        <div className={style.R}></div>
       </div>
     </div>
   );
