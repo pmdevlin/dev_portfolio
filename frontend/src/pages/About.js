@@ -6,6 +6,8 @@ import SkillObj from "../utils/skills";
 import Skill from "../components/Skill";
 
 const About = () => {
+  console.log(SkillObj);
+
   return (
     <div className={style.container}>
       <Navbar />
@@ -15,7 +17,7 @@ const About = () => {
 
           <div className={style.skills}>
             <h2 className={style.skillsTitle}>Some of my Skills</h2>
-            <Skill />
+            <Skill item={SkillObj} />
           </div>
         </div>
         <div className={style.R}></div>
