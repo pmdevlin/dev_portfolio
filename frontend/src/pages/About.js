@@ -12,17 +12,6 @@ const About = () => {
     return <Skill item={item} key={key} />;
   });
 
-  // const slidePics = [
-  //   { url: photo1 },
-  //   { url: "../utils/Photos/slidepics/20191120_112529000_iOS.jpg" },
-  //   { url: "../utils/Photos/slidepics/20190617_013623640_iOS.jpg" },
-  //   { url: "../utils/Photos/slidepics/20190617_013623640_iOS.jpg" },
-  //   { url: "../utils/Photos/slidepics/20190617_013623640_iOS.jpg" },
-  //   { url: "../utils/Photos/slidepics/20190617_013623640_iOS.jpg" },
-  //   { url: "../utils/Photos/slidepics/20190617_013623640_iOS.jpg" },
-  //   { url: "../utils/Photos/slidepics/20190617_013623640_iOS.jpg" },
-  // ];
-
   return (
     <div className={style.container}>
       <Navbar />
@@ -34,12 +23,13 @@ const About = () => {
         </div>
         <div className={style.R}>
           <Slider
-            className={style.slider}
             width={900}
-            height={775}
+            height={720}
             images={slidePics}
             showBullets={true}
             showNavs={true}
+            autoPlay={true}
+            autoPlayDelay={4.0}
           />
         </div>
       </div>
