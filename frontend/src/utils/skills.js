@@ -1,25 +1,25 @@
-import { FaHtml5, FaCss3Alt, FaJava, FaReact, FaNode } from "react-icons/fa";
-import { SiJavascript, SiPostgresql } from "react-icons/si";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJava,
+  FaReact,
+  FaNode,
+  FaDocker,
+} from "react-icons/fa";
+import { SiJavascript, SiPostgresql, SiKubernetes } from "react-icons/si";
 
 const skills = [
   {
-    type: "HTML",
+    type: "HTML & CSS",
     percent: 90,
     logo: (
       <div>
         <FaHtml5 size={22} />
-      </div>
-    ),
-  },
-  {
-    type: "CSS",
-    percent: 90,
-    logo: (
-      <div>
         <FaCss3Alt size={22} />
       </div>
     ),
   },
+
   {
     type: "JavaScript",
     percent: 95,
@@ -62,6 +62,24 @@ const skills = [
     logo: (
       <div>
         <SiPostgresql size={22} />
+      </div>
+    ),
+  },
+  {
+    type: "Kubernetes",
+    percent: 75,
+    logo: (
+      <div>
+        <SiKubernetes size={22} />
+      </div>
+    ),
+  },
+  {
+    type: "Docker",
+    percent: 70,
+    logo: (
+      <div>
+        <FaDocker size={22} />
       </div>
     ),
   },

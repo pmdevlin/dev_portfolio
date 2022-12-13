@@ -2,6 +2,7 @@
 .container {
   background-color: #333333;
   height: 100vh;
+  overflow: scroll;
 }
 
 .main {
@@ -18,8 +19,10 @@
   border: #1fe857;
   height: 75vh;
   width: 50%;
+  margin-top: 0;
 }
 .R {
+  margin-top: 2rem;
   justify-content: center;
   align-items: center;
 }
@@ -33,6 +36,7 @@
 }
 .intro {
   margin: 1rem;
+  margin-top: 0;
   margin-bottom: 0;
   height: 44.813rem;
   background: #333333;
@@ -45,7 +49,7 @@
   /* border: 1px solid greenyellow; */
 }
 .introLi {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-left: 1rem;
   color: var(--light-grey);
 }
@@ -57,7 +61,7 @@
   margin-top: 0;
   margin-left: 2rem;
   border: 2px solid var(--neon-green);
-  padding: 1rem;
+  padding: 0.5rem;
   padding-right: 0;
 }
 .skillsTitle {

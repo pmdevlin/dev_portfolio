@@ -22,16 +22,16 @@ const Projects = () => {
   return (
     <div className={style.container}>
       <Navbar />
-      <div className={style.main}>
-        <div className={style.display}>{display}</div>
-        <div className={style.infoContainer}>
-          {visible ? (
-            <Description projectObj={projectObj[num]} setVisible={setVisible} />
-          ) : (
-            ""
-          )}
-        </div>
+      {/* <div className={style.main}> */}
+      <div className={style.display}>{display}</div>
+      <div className={style.infoContainer}>
+        {visible ? (
+          <Description projectObj={projectObj[num]} setVisible={setVisible} />
+        ) : (
+          ""
+        )}
       </div>
+      {/* </div> */}
     </div>
   );
 };

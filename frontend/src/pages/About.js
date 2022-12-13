@@ -29,7 +29,7 @@ const About = () => {
             showBullets={true}
             showNavs={true}
             autoPlay={true}
-            autoPlayDelay={4.0}
+            autoPlayDelay={10.0}
           />
         </div>
       </div>

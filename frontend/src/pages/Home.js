@@ -13,10 +13,11 @@ export default function Home() {
       <img className={style.logo} src={logo} alt="logo" />
 
       <div className={style.intro}>
-        <h1>Hello, I am </h1>
-        <h1 className={style.name}>Paul Devlin</h1>
+        <h1>
+          Hello, I am<span className={style.name}>Paul Devlin</span>
+        </h1>
+        <h1 className={style.text}>I'm a full-stack web developer.</h1>
       </div>
-      <h1 className={style.text}>I'm a full-stack web developer.</h1>
 
       <Link to="/projects">
         <button type="submit" className={style.button}>

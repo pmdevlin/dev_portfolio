@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=K2D:wght@300&display=swap");
 
+@media (max-width: 500px) {
+  .container {
+    flex-direction: column;
+    height: 15rem;
+  }
+}
+
 .container {
   height: 8rem;
   width: 100vw;
@@ -8,7 +15,7 @@
   justify-content: space-between;
   background-color: var(--navbar-background);
   filter: drop-shadow(0px 4px 4px #1fe857);
-  /* border: 3px solid gold;*/
+  /* border: 2px solid gold; */
 }
 
 .mediaContainer {

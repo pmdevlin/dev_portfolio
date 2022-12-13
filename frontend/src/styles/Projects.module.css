@@ -1,16 +1,18 @@
+@media (min-width: 500px) {
+  .display {
+    flex-direction: column;
+  }
+}
+
 .container {
   height: 100vh;
   background-color: var(--main-black);
 }
 
-/* .infoContainer {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  border: 1px solid green;
-} */
 .display {
-  margin-top: 5rem;
+  height: 75vh;
+  width: 100vw;
+  /* border: 8px solid green; */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

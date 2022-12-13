@@ -1,3 +1,9 @@
+@media (max-width: 500px) {
+  .intro {
+    text-align: center;
+  }
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -15,7 +21,7 @@
 
 .intro {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .name {
   margin-left: 0.5rem;
