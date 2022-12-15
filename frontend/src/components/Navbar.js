@@ -13,7 +13,7 @@ const Navbar = () => {
       </Link>
     );
   });
-
+  // need to update to be responsive
   return (
     <div className={style.container}>
       <div className={style.mediaContainer}>
