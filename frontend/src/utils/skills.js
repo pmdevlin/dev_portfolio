@@ -31,7 +31,7 @@ const skills = [
   },
   {
     type: "Java",
-    percent: 45,
+    percent: 80,
     logo: (
       <div>
         <FaJava size={22} />

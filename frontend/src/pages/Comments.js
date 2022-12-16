@@ -2,60 +2,19 @@ import React, { useEffect, useState, useReducer } from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
 import EditModal from "../components/EditModal";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
+import {
+  INITIAL_STATE,
+  commentReducer,
+  ACTIONS,
+} from "./reducers/CommentReducer";
 
 export const CommentContext = React.createContext();
 
-const initialState = {
-  comments: "",
-  id: 0,
-};
-export const ACTIONS = {
-  GET: "fetch_comments",
-  UPDATE: "update_comment",
-  DELETE: "delete_comment",
-};
-const reducer = (state, action) => {
-  console.log(state);
-  switch (action.type) {
-    case ACTIONS.GET: {
-      return {
-        comments: action.payload,
-      };
-    }
-    case ACTIONS.DELETE: {
-      return {
-        id: action.payload,
-        comments: [
-          state.comments.filter((item, key) => {
-            if (state.id !== item.id) {
-              return item;
-            }
-          }),
-        ],
-        // ...state,
-        // state.map((item) => {
-        //   if (item.id !== state.id) {
-        //     console.log(state.id);
-        //     // axios
-        //     //   .delete(`http://localhost:8080/comments/${id}}`)
-        //     //   .then(() => console.log(`delete of ${id} completed`));
-        //     return item;
-        //   } else {
-        //     console.log("not working");
-        //   }
-        // }),
-      };
-    }
-    default:
-      return state;
-  }
-};
-
 const Comments = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(commentReducer, INITIAL_STATE);
   const [show, setShow] = useState(false);
   const [rerender, setRerender] = useState(false);
   const [display, setDisplay] = useState(false);
@@ -76,11 +35,14 @@ const Comments = () => {
   // LOGIC TO HANDLE BOTH IN ONE FUNCTION --> COMPLETED
   // TRIGGER A RENDER WHEN CLICKED ON EITHER BUTTON --> COMPLETED
   const handleViews = (e) => {
+    console.log(e.target.id);
     if (e.target.id === "view") {
+      //dispatch({ type: "VIEW" });
       setShow(true);
       setRerender(!rerender);
     }
     if (e.target.id === "hide") {
+      //dispatch({ type: "HIDE" });
       setShow(false);
       setRerender(!rerender);
     }
