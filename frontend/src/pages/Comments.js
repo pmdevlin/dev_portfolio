@@ -5,17 +5,51 @@ import EditModal from "../components/EditModal";
 import axios from "axios";
 import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
-import {
-  INITIAL_STATE,
-  commentReducer,
-  ACTIONS,
-} from "./reducers/CommentReducer";
+
+//TODO:
+// 1: set state into initial state with useEffect on first load
+// 2: create GET, POST, UPDATE in cases
+//    Get - should update initial state on page load
+//    POST - should post to database and update local state
+//    UPDATE - should update database and update local state
+//    DELETE - should delete from database and update local state
+
+// BUGS
+// the MainDisplay is not throwing errors I think this is due to the main display not receiving
+// data in time and trying to use array methods on undefined.
+
+const INITIAL_STATE = {
+  comments: {},
+  change: {},
+};
+const ACTIONS = {
+  GET: "fetch_comments",
+  UPDATE: "update_comment",
+  DELETE: "delete_comment",
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "GET": {
+      return {
+        comments: action.payload,
+      };
+    }
+    case "POST": {
+      return {
+        comments: { ...state, ...action.payload },
+      };
+    }
+    default:
+      return state;
+  }
+};
 
 export const CommentContext = React.createContext();
 
 const Comments = () => {
-  const [state, dispatch] = useReducer(commentReducer, INITIAL_STATE);
-  const [show, setShow] = useState(false);
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+  //const [show, setShow] = useState(false);
   const [rerender, setRerender] = useState(false);
   const [display, setDisplay] = useState(false);
   const [modal, setModal] = useState({});
@@ -24,29 +58,12 @@ const Comments = () => {
     axios
       .get("http://localhost:8080/comments")
       .then((response) => {
-        dispatch({ type: ACTIONS.GET, payload: response.data });
+        dispatch({ type: "GET", payload: response.data });
       })
       .catch((err) => {
         console.error(err.message);
       });
-  }, [rerender]);
-
-  // RENDERING VIEW AND HIDE BUTTONS --> COMPLETED
-  // LOGIC TO HANDLE BOTH IN ONE FUNCTION --> COMPLETED
-  // TRIGGER A RENDER WHEN CLICKED ON EITHER BUTTON --> COMPLETED
-  const handleViews = (e) => {
-    console.log(e.target.id);
-    if (e.target.id === "view") {
-      //dispatch({ type: "VIEW" });
-      setShow(true);
-      setRerender(!rerender);
-    }
-    if (e.target.id === "hide") {
-      //dispatch({ type: "HIDE" });
-      setShow(false);
-      setRerender(!rerender);
-    }
-  };
+  }, []);
 
   // POST REQUEST FUNCTION --> COMPLETED
   // CREATE REQUEST OBJECT --> COMPLETED
@@ -68,9 +85,11 @@ const Comments = () => {
       },
       body: JSON.stringify(postData),
     })
-      .then((res) => res.json())
+      .then(() => {
+        dispatch({ type: "POST", payload: postData });
+      })
       .then((data) => console.log("success", data))
-      .then(() => setRerender(!rerender))
+
       .catch((error) => {
         console.error("Error:", error);
       });
@@ -82,24 +101,17 @@ const Comments = () => {
     // console.log(postData);
   };
 
-  // DELETE REQUEST --> COMPLETED
-  // CONNECT ID TO THE DELETE FUNCTION --> COMPLETED
-  // RERENDER OF PAGE AFTER DELETE --> COMPLETED
   const handleDelete = (e) => {
-    dispatch({ type: ACTIONS.DELETE, payload: e.currentTarget.id });
-    // axios
-    //   .delete(`http://localhost:8080/comments/${e.target.id}`)
-    //   .then(() => console.log(`Deleted Comment ${e.target.id}`))
-    //   .then(() => setRerender(!rerender))
-    //   .catch((err) => {
-    //     console.error(err.message);
-    //   });
+    //dispatch({ type: ACTIONS.DELETE, payload: e.currentTarget.id });
+    axios
+      .delete(`http://localhost:8080/comments/${e.target.id}`)
+      .then(() => console.log(`Deleted Comment ${e.target.id}`))
+      .then(() => setRerender(!rerender))
+      .catch((err) => {
+        console.error(err.message);
+      });
   };
 
-  // PUT REQUEST
-  // CONNECT TO MODAL --> COMPLETE
-  // SEND THE REQUEST --> COMPLETE
-  // STYLING OF MODAL --> INCOMPLETE
   const handleUpdate = (e) => {
     e.preventDefault();
     const id = e.target.id;
@@ -112,7 +124,7 @@ const Comments = () => {
     axios
       .put(`http://localhost:8080/comments/${id}`, newUpdate)
       .then(() => console.log(`update of comment ${id} Successful`))
-      .then(() => setRerender(!rerender))
+      .then(dispatch({ type: "UPDATE", payload: newUpdate }))
       .then(() => setDisplay(false))
       .catch((err) => {
         console.error(err.message);
@@ -142,7 +154,7 @@ const Comments = () => {
   const closeModal = () => {
     setDisplay(false);
   };
-
+  console.log(state);
   return (
     <CommentContext.Provider
       value={{
@@ -163,35 +175,10 @@ const Comments = () => {
         <div className={style.main}>
           <CommentBox />
           <EditModal />
-
-          <div className={style.buttonContainer}>
-            <button
-              className={style.button}
-              id="view"
-              onClick={handleViews}
-              type="button"
-            >
-              View
-            </button>
-            {/* <button className={style.button} type="button">
-              Refresh
-            </button> */}
-            <button
-              className={style.button}
-              id="hide"
-              onClick={handleViews}
-              type="button"
-            >
-              Hide
-            </button>
-          </div>
-          <div className={style.commentContainer}>
-            {show ? (
-              <MainDisplay />
-            ) : (
-              <p className={style.instructions}>"Press View to see Comments"</p>
-            )}
-          </div>
+          {/* need to understand why the MainDisplay is erroring out I thing it is because
+the data is not getting through on first attempt so it is conducting array methods on 
+undefined */}
+          <div className={style.commentContainer}>{/* <MainDisplay /> */}</div>
         </div>
       </div>
     </CommentContext.Provider>
