@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
 import style from "../componentStyles/DisplayItem.module.css";
-import { FaEdit, FaWindowClose } from "react-icons/fa";
-import { CommentContext } from "../pages/Comments";
+import { FaWindowClose, FaEdit } from "react-icons/fa";
 
 const DisplayItem = (props) => {
-  const data = useContext(CommentContext);
+  console.log(props);
   const { id, name, topic, body } = props.item;
+  const { handleDelete } = props;
 
   return (
     <div className={style.container}>
@@ -15,11 +14,11 @@ const DisplayItem = (props) => {
           <h3 className={style.input}>{name}</h3>
         </div>
         <div className={style.buttons}>
-          <FaEdit className={style.edit} id={id} onClick={data.handleModal} />
+          {/* <FaEdit className={style.edit} id={id} onClick={data.handleModal} /> */}
           <FaWindowClose
             className={style.close}
             id={id}
-            onClick={data.handleDelete}
+            onClick={handleDelete}
           />
         </div>
       </div>

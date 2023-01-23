@@ -1,13 +1,14 @@
 .container {
-  height: 100vh;
   background-color: var(--main-black);
 }
 
 .main {
+  height: 85vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  overflow: hidden;
+  background-color: #333333;
 }
 
 .buttonContainer {
@@ -28,6 +29,7 @@
 .commentContainer {
   overflow-y: auto;
   height: 20rem;
+  border: 1px solid turquoise;
 }
 
 .instructions {

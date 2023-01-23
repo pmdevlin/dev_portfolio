@@ -1,0 +1,11 @@
+.comment {
+  /* border: 1px solid red; */
+  width: 50%;
+  height: 75%;
+  margin: 2rem;
+  background-color: var(--dark-gray);
+  box-shadow: 3px 3px 2px var(--neon-green);
+  border-radius: 10px;
+  overflow: scroll;
+  overflow-x: hidden;
+}

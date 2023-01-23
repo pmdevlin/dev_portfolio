@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useReducer } from "react";
 import Navbar from "../components/Navbar";
 import CommentBox from "../components/CommentBox";
-import EditModal from "../components/EditModal";
-import axios from "axios";
+//import EditModal from "../components/EditModal";
+
 import MainDisplay from "../components/MainDisplay";
 import style from "../styles/Comments.module.css";
 
@@ -19,13 +19,8 @@ import style from "../styles/Comments.module.css";
 // data in time and trying to use array methods on undefined.
 
 const INITIAL_STATE = {
-  comments: {},
-  change: {},
-};
-const ACTIONS = {
-  GET: "fetch_comments",
-  UPDATE: "update_comment",
-  DELETE: "delete_comment",
+  comments: [],
+  checker: [],
 };
 
 const reducer = (state, action) => {
@@ -37,8 +32,17 @@ const reducer = (state, action) => {
     }
     case "POST": {
       return {
-        comments: { ...state, ...action.payload },
+        comments: [...state.comments, action.payload],
       };
+    }
+    case "DELETE": {
+      return state.comments.map((item) => {
+        if (item.id !== action.payload) {
+          return { comments: [...item] };
+        } else {
+          return state;
+        }
+      });
     }
     default:
       return state;
@@ -49,27 +53,19 @@ export const CommentContext = React.createContext();
 
 const Comments = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  //const [show, setShow] = useState(false);
-  const [rerender, setRerender] = useState(false);
-  const [display, setDisplay] = useState(false);
-  const [modal, setModal] = useState({});
+  //const [test, setTest] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/comments")
-      .then((response) => {
-        dispatch({ type: "GET", payload: response.data });
-      })
-      .catch((err) => {
-        console.error(err.message);
-      });
+    async function getData() {
+      const response = await fetch("http://localhost:8080/comments");
+      console.log(response);
+      const data = await response.json();
+      dispatch({ type: "GET", payload: data });
+    }
+    getData();
   }, []);
 
-  // POST REQUEST FUNCTION --> COMPLETED
-  // CREATE REQUEST OBJECT --> COMPLETED
-  // FETCH POST REQUEST --> COMPLETED
-  // INSTANT RERENDER --> COMPLETED
-  // CLEAR FIELDS ON SUBMIT --> COMPLETED
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -102,84 +98,37 @@ const Comments = () => {
   };
 
   const handleDelete = (e) => {
-    //dispatch({ type: ACTIONS.DELETE, payload: e.currentTarget.id });
-    axios
-      .delete(`http://localhost:8080/comments/${e.target.id}`)
-      .then(() => console.log(`Deleted Comment ${e.target.id}`))
-      .then(() => setRerender(!rerender))
-      .catch((err) => {
-        console.error(err.message);
-      });
-  };
-
-  const handleUpdate = (e) => {
     e.preventDefault();
-    const id = e.target.id;
-
-    const newUpdate = {
-      name: e.target[0].value || e.target[0].placeholder,
-      topic: e.target[1].value || e.target[1].placeholder,
-      body: e.target[2].value || e.target[2].placeholder,
-    };
-    axios
-      .put(`http://localhost:8080/comments/${id}`, newUpdate)
-      .then(() => console.log(`update of comment ${id} Successful`))
-      .then(dispatch({ type: "UPDATE", payload: newUpdate }))
-      .then(() => setDisplay(false))
+    fetch(`http://localhost:8080/comments/${e.target.id}`, {
+      method: "DELETE",
+      headers: {
+        "Access-Control-Allow-Origin": "http://localhost:8080/comments",
+      },
+    })
+      .then(() => console.log(`Deleted Comment ${e.target.id}`))
       .catch((err) => {
         console.error(err.message);
       });
+
+    dispatch({ type: "DELETE", payload: e.currentTarget.id });
   };
 
-  const handleModal = (e) => {
-    const target = e.currentTarget.id;
-    const commentArr = state.comments;
-    const modalObj = {};
-    for (const elem of commentArr) {
-      // eslint-disable-next-line
-      if (elem.id == target) {
-        modalObj.id = elem.id;
-        modalObj.name = elem.name;
-        modalObj.topic = elem.topic;
-        modalObj.body = elem.body;
-      }
-    }
-    setModal((modal) => ({
-      ...modal,
-      ...modalObj,
-    }));
-
-    setDisplay(true);
-  };
-  const closeModal = () => {
-    setDisplay(false);
-  };
-  console.log(state);
+  //console.log(state);
   return (
     <CommentContext.Provider
       value={{
         commentState: state.comments,
-        dispatch: dispatch,
-        handleDelete: handleDelete,
+
         handleSubmit: handleSubmit,
-        handleUpdate: handleUpdate,
-        handleModal: handleModal,
-        closeModal: closeModal,
-        display: display,
-        modal: modal,
+        handleDelete: handleDelete,
       }}
     >
       <div className={style.container}>
         <Navbar />
-
-        <div className={style.main}>
-          <CommentBox />
-          <EditModal />
-          {/* need to understand why the MainDisplay is erroring out I thing it is because
-the data is not getting through on first attempt so it is conducting array methods on 
-undefined */}
-          <div className={style.commentContainer}>{/* <MainDisplay /> */}</div>
-        </div>
+      </div>
+      <div className={style.main}>
+        <CommentBox />
+        <MainDisplay comments={state.comments} handleDelete={handleDelete} />
       </div>
     </CommentContext.Provider>
   );

@@ -2,20 +2,23 @@
 
 .container {
   /* border: 1px solid red; */
-  width: 674px;
-  height: 352px;
+  width: 50%;
+  height: 75%;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  margin-left: 2rem;
   background-color: var(--dark-gray);
   box-shadow: 3px 3px 2px var(--neon-green);
   border-radius: 10px;
+  padding: 2rem;
+  padding-bottom: 0;
 }
 
-.main {
-  /* border: 1px solid green; */
+/* .main {
+  border: 1px solid green;
   height: 18rem;
   margin: 2rem;
-}
+} */
 
 .form {
   display: flex;
