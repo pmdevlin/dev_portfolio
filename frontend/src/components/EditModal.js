@@ -6,7 +6,7 @@ import { FaWindowClose } from "react-icons/fa";
 const EditModal = () => {
   const data = useContext(CommentContext);
 
-  // console.log(funcData.modal);
+  //console.log(data);
 
   return (
     <div

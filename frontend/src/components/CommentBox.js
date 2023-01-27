@@ -7,7 +7,7 @@ const CommentBox = () => {
   //console.log(data);
   return (
     <div className={style.container}>
-      <form className={style.form} onSubmit={data.handleSubmit}>
+      <form className={style.form} onSubmit={data.handlePost}>
         <label className={style.title}>Name</label>
         <input className={style.nameBox} type="text" />
 

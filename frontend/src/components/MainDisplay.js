@@ -1,33 +1,26 @@
 import React, { useContext } from "react";
 import DisplayItem from "./DisplayItem";
 import style from "../componentStyles/MainDisplay.module.css";
-//import { CommentContext } from "../pages/Comments";
+import { CommentContext } from "../pages/Comments";
 
-const MainDisplay = (props) => {
-  const view = props.comments.map((item, index) => {
-    return (
-      <DisplayItem key={index} item={item} handleDelete={props.handleDelete} />
-    );
-  });
+const MainDisplay = () => {
+  const commentContext = useContext(CommentContext);
 
-  // const commentContext = useContext(CommentContext);
+  //console.log(commentContext);
 
-  // const view = commentContext.commentState
-  //   .slice(0)
-  //   .reverse()
-  //   .map((item) => {
-  //     console.log(item);
-  //     return (
-  //       <DisplayItem
-  //         key={item.id}
-  //         item={item}
-  //         handleDelete={commentContext.handleDelete}
-  //         //handleUpdate={commentContext.handleUpdate}
-  //       />
-  //     );
-  //   });
+  // const view = commentContext.commentState.forEach((item, index) => {
+  //   return <DisplayItem key={index} item={item} />;
+  // });
 
-  return <div className={style.comment}>{view}</div>;
+  //console.log(item);
+
+  return (
+    <div className={style.comment}>
+      {commentContext.commentState.map((item, index) => {
+        return <DisplayItem key={index} item={item} />;
+      })}
+    </div>
+  );
 };
 
 export default MainDisplay;
